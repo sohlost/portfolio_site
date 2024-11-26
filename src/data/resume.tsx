@@ -47,7 +47,7 @@ export const DATA = {
       },
       X: {
         name: "X",
-        url: "https://x.com/StarKnightt",
+        url: "https://x.com/StarKnight_12",
         icon: Icons.x,
 
         navbar: true,

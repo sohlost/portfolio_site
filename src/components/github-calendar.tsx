@@ -1,4 +1,3 @@
-// src/components/github-calendar.tsx
 "use client";
 
 import React from "react";
@@ -20,24 +19,27 @@ export function GithubContributions() {
   };
 
   if (!mounted) {
-    return <div className="w-full h-[160px] rounded-xl bg-muted animate-pulse " />;
+    return (
+      <div className="w-full h-[160px] rounded-xl bg-muted animate-pulse" />
+    );
   }
 
   return (
-    <motion.div 
+    <motion.div
       className="w-full overflow-hidden rounded-xl bg-card hover:shadow-lg transition-shadow duration-300 p-5"
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <GitHubCalendar
-        username="StarKnightt"
-        colorScheme={resolvedTheme as "light" | "dark"}
-        fontSize={12}
-        blockSize={12}
-        blockMargin={4}
-        className="p-4 hover:scale-[1.02] transition-transform duration-300"
-      />
+      <div className="p-4 hover:scale-[1.02] transition-transform duration-300">
+        <GitHubCalendar
+          username="StarKnightt"
+          colorScheme={resolvedTheme as "light" | "dark"}
+          fontSize={12}
+          blockSize={12}
+          blockMargin={4}
+        />
+      </div>
     </motion.div>
   );
 }

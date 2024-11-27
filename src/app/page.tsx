@@ -211,7 +211,7 @@ export default function Page() {
                 Let's Connect !
               </h2>
               <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to talk? Just text me a {" "}
+                Want to talk? Just text me a{" "}
                 <Link
                   href={DATA.contact.social.X.url}
                   className="text-blue-500 hover:underline"

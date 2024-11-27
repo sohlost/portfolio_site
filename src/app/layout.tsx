@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import type { Metadata } from "next";
 import { Inter as FontSans } from "next/font/google";
 import "./globals.css";
+import { ScrollProgress } from "@/components/scroll-progress";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -46,7 +47,9 @@ export const metadata: Metadata = {
     google: "",
     yandex: "",
   },
+  keywords: ['developer', 'portfolio', 'react', 'nextjs'],
 };
+
 
 export default function RootLayout({
   children,
@@ -61,6 +64,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
+        <ScrollProgress />
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
             {children}

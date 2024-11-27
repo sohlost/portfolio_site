@@ -142,3 +142,25 @@ code[data-line-numbers-max-digits="2"] > [data-line]::before {
 code[data-line-numbers-max-digits="3"] > [data-line]::before {
   width: 3rem;
 }
+
+@keyframes border-pulse {
+  0% {
+    border-color: rgba(var(--accent-color), 0.3);
+  }
+  50% {
+    border-color: rgba(var(--accent-color), 1);
+  }
+  100% {
+    border-color: rgba(var(--accent-color), 0.3);
+  }
+}
+
+.profile-pic {
+  border: 2px solid transparent;
+  animation: border-pulse 2s infinite;
+  transition: transform 0.3s ease;
+}
+
+.profile-pic:hover {
+  transform: scale(1.05);
+}

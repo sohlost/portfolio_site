@@ -3,7 +3,7 @@ import { HomeIcon, NotebookIcon } from "lucide-react";
 
 export const DATA = {
   name: "Prasenjit",
-  initials: "DV",
+  initials: "PN",
   url: "https://github.com/StarKnightt",
   location: "Odisha, India",
   locationLink: "https://www.google.com/maps/place/odisha",
@@ -74,7 +74,7 @@ export const DATA = {
         name: "Send Email",
         url: "mailto:prasenjitt4e@gmail.com",
         icon: Icons.email,
-        navbar: true,
+        navbar: false,
       },
     },
   },

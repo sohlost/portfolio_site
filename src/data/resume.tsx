@@ -167,7 +167,7 @@ export const DATA = {
       href: "https://www.nsmcity.ac.in/index.asp",
       degree: "Higher Secondary",
       logoUrl: "/waterloo.png",
-      start: "2016",
+      start: "2019",
       end: "2021",
     },
   ],

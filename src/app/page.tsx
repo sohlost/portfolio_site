@@ -8,6 +8,7 @@ import { Badge } from "@/components/ui/badge";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
+import { GithubContributions } from "@/components/github-calendar";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -88,6 +89,14 @@ export default function Page() {
             ))}
           </div>
         </div>
+      </section>
+     
+      {/* GitHub Contributions Section */}
+      <section id="contributions">
+        <BlurFade delay={BLUR_FADE_DELAY * 10}>
+          <h2 className="text-xl font-bold">GitHub Contributions</h2>
+          <GithubContributions />
+        </BlurFade>
       </section>
       <section id="projects">
         <div className="space-y-12 w-full py-12">

@@ -50,7 +50,6 @@ export const metadata: Metadata = {
   keywords: ['developer', 'portfolio', 'react', 'nextjs'],
 };
 
-
 export default function RootLayout({
   children,
 }: Readonly<{

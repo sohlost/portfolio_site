@@ -285,7 +285,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://automatic.chat",
+          href: "https://solarrsystem.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
       ],

@@ -10,7 +10,7 @@ export const DATA = {
   description:
     "I'm a developer from India who enjoys creating and building things that help people. I'm also quite active on Twitter!",
   summary:
-    "I Completed my B.tech Degree in [Computer Science and Information Technology](https://tat.ac.in/) at the end of 2024. Right Now, I'm learning Next.js and working on some [projects](https://github.com/StarKnightt) to sharpen my skills.",
+    "I Completed my B.tech Degree in [Computer Science and Information Technology](https://tat.ac.in/) at the end of 2024. Right Now, I'm learning Next.js and working on some [projects](https://github.com/StarKnightt) to sharpen my skills. I love contribute in Open-Source projects",
   avatarUrl: "/me.png",
   skills: [
     "React",

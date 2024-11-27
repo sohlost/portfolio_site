@@ -4,5 +4,5 @@ import { ThemeProvider as NextThemesProvider } from "next-themes";
 import { ThemeProviderProps } from "next-themes"; // Updated import path
 
 export function ThemeProvider({ children, ...props }: ThemeProviderProps) {
-    return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
+  return <NextThemesProvider {...props}>{children}</NextThemesProvider>;
 }

@@ -75,7 +75,7 @@ export default function Page() {
           ))}
         </div>
       </section> */}
-      
+
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
@@ -90,7 +90,7 @@ export default function Page() {
           </div>
         </div>
       </section>
-     
+
       {/* GitHub Contributions Section */}
       <section id="contributions">
         <BlurFade delay={BLUR_FADE_DELAY * 10}>
@@ -110,7 +110,7 @@ export default function Page() {
                   Check out my latest work
                 </h2>
                 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                I&apos;ve worked on a variety of projects, from simple
+                  I&apos;ve worked on a variety of projects, from simple
                   websites to complex web applications. Here are a few of my
                   favorites
                 </p>

@@ -32,13 +32,15 @@ export function GithubContributions() {
       transition={{ duration: 0.5 }}
     >
       <div className="p-4 hover:scale-[1.02] transition-transform duration-300">
-        <GitHubCalendar
-          username="StarKnightt"
-          colorScheme={resolvedTheme as "light" | "dark"}
-          fontSize={12}
-          blockSize={12}
-          blockMargin={4}
-        />
+        <div className="your-custom-class">
+          <GitHubCalendar
+            username="StarKnightt"
+            colorScheme={resolvedTheme as "light" | "dark"}
+            fontSize={12}
+            blockSize={12}
+            blockMargin={4}
+          />
+        </div>
       </div>
     </motion.div>
   );

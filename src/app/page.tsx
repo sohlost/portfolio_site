@@ -218,7 +218,7 @@ export default function Page() {
                 >
                   with a direct question on twitter
                 </Link>{" "}
-                and I&apos;ll respond whenever I can.
+                and I&apos;ll respond as soon as possible.
               </p>
             </div>
           </BlurFade>

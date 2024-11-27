@@ -91,6 +91,41 @@ export default function Page() {
         </div>
       </section>
 
+      <section id="blogs">
+        <div className="flex min-h-0 flex-col gap-y-3">
+          <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <h2 className="text-xl font-bold">Blogs</h2>
+          </BlurFade>
+          <BlurFade delay={BLUR_FADE_DELAY * 10}>
+            <div className="flex flex-col space-y-2">
+              <p className="text-muted-foreground">
+                Check out my latest blog posts:
+              </p>
+              <Link
+                href="https://www.prasen.dev/blog"
+                className="text-blue-500 hover:underline inline-flex items-center"
+              >
+                Visit My Blog
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  className="h-4 w-4 ml-1"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                  />
+                </svg>
+              </Link>
+            </div>
+          </BlurFade>
+        </div>
+      </section>
+      
       {/* GitHub Contributions Section */}
       <section id="contributions">
         <BlurFade delay={BLUR_FADE_DELAY * 10}>

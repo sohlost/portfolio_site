@@ -3,7 +3,7 @@
 import { cn } from "@/lib/utils";
 import { cva, type VariantProps } from "class-variance-authority";
 import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
-import React, { PropsWithChildren, useRef } from "react";
+import React, { PropsWithChildren, useRef, useEffect, useState } from "react";
 
 export interface DockProps extends VariantProps<typeof dockVariants> {
   className?: string;
@@ -31,6 +31,29 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     ref
   ) => {
     const mousex = useMotionValue(Infinity);
+    const [isMobile, setIsMobile] = useState(false);
+
+    useEffect(() => {
+      const checkMobile = () => {
+        setIsMobile('ontouchstart' in window || navigator.maxTouchPoints > 0);
+      };
+
+      checkMobile();
+      window.addEventListener('resize', checkMobile);
+      return () => window.removeEventListener('resize', checkMobile);
+    }, []);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+      if (!isMobile) {
+        mousex.set(e.pageX);
+      }
+    };
+
+    const handleMouseLeave = () => {
+      if (!isMobile) {
+        mousex.set(Infinity);
+      }
+    };
 
     const renderChildren = () => {
       return React.Children.map(children, (child: any) => {
@@ -39,6 +62,7 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
             mousex,
             magnification,
             distance,
+            isMobile,
           } as DockIconProps);
         }
         return child;
@@ -48,10 +72,18 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
     return (
       <motion.div
         ref={ref}
-        onMouseMove={(e) => mousex.set(e.pageX)}
-        onMouseLeave={() => mousex.set(Infinity)}
+        onMouseMove={handleMouseMove}
+        onMouseLeave={handleMouseLeave}
+        onTouchStart={(e) => {
+          // Prevent default touch behaviors that might cause unintended expansion
+          e.stopPropagation();
+        }}
         {...props}
-        className={cn(dockVariants({ className }))}
+        className={cn(
+          dockVariants({ className }),
+          // Add mobile-specific classes to constrain height
+          "max-h-14 sm:max-h-none"
+        )}
       >
         {renderChildren()}
       </motion.div>
@@ -68,6 +100,7 @@ export interface DockIconProps {
   mousex?: any;
   className?: string;
   children?: React.ReactNode;
+  isMobile?: boolean;
   props?: PropsWithChildren;
 }
 
@@ -78,6 +111,7 @@ const DockIcon = ({
   mousex,
   className,
   children,
+  isMobile = false,
   ...props
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -90,7 +124,7 @@ const DockIcon = ({
   let widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [40, magnification, 40]
+    [40, isMobile ? 40 : magnification, 40]
   );
 
   let width = useSpring(widthSync, {
@@ -105,6 +139,8 @@ const DockIcon = ({
       style={{ width }}
       className={cn(
         "flex aspect-square cursor-pointer items-center justify-center rounded-full",
+        // Disable hover effects on mobile
+        "max-sm:hover:*:scale-100 sm:hover:*:scale-110",
         className
       )}
       {...props}

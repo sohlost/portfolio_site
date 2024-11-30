@@ -62,7 +62,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
             mousex,
             magnification,
             distance,
-            isMobile,
           } as DockIconProps);
         }
         return child;
@@ -100,7 +99,6 @@ export interface DockIconProps {
   mousex?: any;
   className?: string;
   children?: React.ReactNode;
-  isMobile?: boolean;
   props?: PropsWithChildren;
 }
 
@@ -111,7 +109,6 @@ const DockIcon = ({
   mousex,
   className,
   children,
-  isMobile = false,
   ...props
 }: DockIconProps) => {
   const ref = useRef<HTMLDivElement>(null);
@@ -124,7 +121,7 @@ const DockIcon = ({
   let widthSync = useTransform(
     distanceCalc,
     [-distance, 0, distance],
-    [40, isMobile ? 40 : magnification, 40]
+    [40, magnification, 40]
   );
 
   let width = useSpring(widthSync, {
@@ -153,3 +150,4 @@ const DockIcon = ({
 DockIcon.displayName = "DockIcon";
 
 export { Dock, DockIcon, dockVariants };
+

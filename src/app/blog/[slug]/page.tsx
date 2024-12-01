@@ -54,9 +54,11 @@ export async function generateMetadata({
 export default async function Blog({
   params,
 }: {
-  params: { slug: string };
+  params: {
+    slug: string;
+  };
 }) {
-  const post = await getPost(params.slug);
+  let post = await getPost(params.slug);
 
   if (!post) {
     notFound();

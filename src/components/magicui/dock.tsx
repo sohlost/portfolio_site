@@ -83,7 +83,6 @@ const Dock = React.forwardRef<HTMLDivElement, DockProps>(
           // Add mobile-specific classes to constrain height
           "max-h-14 sm:max-h-none"
         )}
-        data-mobile={isMobile}
       >
         {renderChildren()}
       </motion.div>
@@ -151,4 +150,3 @@ const DockIcon = ({
 DockIcon.displayName = "DockIcon";
 
 export { Dock, DockIcon, dockVariants };
-

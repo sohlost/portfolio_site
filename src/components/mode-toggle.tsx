@@ -39,3 +39,5 @@ export const ModeToggle = React.forwardRef<
     </Button>
   );
 });
+
+ModeToggle.displayName = "ModeToggle";

@@ -9,7 +9,7 @@ export const ModeToggle = React.forwardRef<
   HTMLButtonElement,
   React.ButtonHTMLAttributes<HTMLButtonElement>
 >((props, ref) => {
-  const { resolvedTheme, setTheme } = useTheme();
+  const { theme, setTheme } = useTheme();
   const [mounted, setMounted] = React.useState(false);
 
   // Prevent hydration mismatch
@@ -28,8 +28,7 @@ export const ModeToggle = React.forwardRef<
       size="icon"
       className="px-2"
       onClick={() => {
-        setTheme(resolvedTheme === "dark" ? "light" : "dark");
-        console.log("Theme toggled to:", resolvedTheme === "dark" ? "light" : "dark");
+        setTheme(theme === "dark" ? "light" : "dark");
       }}
       aria-label="Toggle theme"
       {...props}

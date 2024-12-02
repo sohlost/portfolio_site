@@ -50,32 +50,30 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
-      {/* <section id="work">
-        <div className="flex min-h-0 flex-col gap-y-3">
-          <BlurFade delay={BLUR_FADE_DELAY * 5}>
-            <h2 className="text-xl font-bold">Work Experience</h2>
-          </BlurFade>
-          {DATA.work.map((work, id) => (
-            <BlurFade
-              key={work.company}
-              delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-            >
-              <ResumeCard
-                key={work.company}
-                logoUrl={work.logoUrl}
-                altText={work.company}
-                title={work.company}
-                subtitle={work.title}
-                href={work.href}
-                badges={work.badges}
-                period={`${work.start} - ${work.end ?? "Present"}`}
-                description={work.description}
-              />
-            </BlurFade>
-          ))}
-        </div>
-      </section> */}
-
+      
+      <section id="connect">
+        <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
+          <div className="space-y-4">
+            <h2 className="text-xl font-bold">Let's Talk 💬</h2>
+            <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
+              {Object.entries(DATA.contact.social).map(([name, social], idx) => (
+                <BlurFade key={name} delay={BLUR_FADE_DELAY * 5 + idx * 0.05}>
+                  <Link
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label={name}
+                    className="flex items-center justify-center p-3 rounded-xl bg-card hover:bg-accent/50 transition-all duration-200 group"
+                  >
+                    <social.icon className="size-6 text-foreground" />
+                  </Link>
+                </BlurFade>
+              ))}
+            </div>
+          </div>
+        </BlurFade>
+      </section>
+      
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>

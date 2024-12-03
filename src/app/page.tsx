@@ -5,6 +5,7 @@ import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
+import { BlogCard } from "@/components/blog-card";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -92,18 +93,23 @@ export default function Page() {
       <section id="blogs">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
-            <h2 className="text-xl font-bold">Blogs</h2>
+            <h2 className="text-xl font-bold">Recent Blog Posts</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <div className="flex flex-col space-y-2">
-              <p className="text-muted-foreground">
-                Check out my latest blog posts:
-              </p>
+            <div className="flex flex-col space-y-4">
+              <BlogCard
+                post={{
+                  title: "Is Computer Science Saturated?",
+                  publishedAt: "2024-06-18",
+                  summary: "Blogs are preparing to launch. Stay tuned!",
+                  slug: "hello-world"
+                }}
+              />
               <Link
-                href="https://www.prasen.dev/blog"
-                className="text-blue-500 hover:underline inline-flex items-center"
+                href="/blog"
+                className="text-blue-500 hover:underline inline-flex items-center mt-4"
               >
-                Visit My Blog
+                Read More Posts
                 <svg
                   xmlns="http://www.w3.org/2000/svg"
                   className="h-4 w-4 ml-1"

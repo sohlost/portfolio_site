@@ -35,3 +35,10 @@ export function formatDate(date: string) {
     return `${fullDate} (${yearsAgo}y ago)`;
   }
 }
+
+export function getYouTubeVideoId(url: string) {
+  const regExp = /^.*(?:youtu.be\/|v\/|e\/|u\/\w+\/|embed\/|v=)([^#\&\?]*).*/;
+  const match = url.match(regExp);
+  return match && match[1].length === 11 ? match[1] : null;
+}
+

@@ -3,7 +3,16 @@ const nextConfig = {
   reactStrictMode: true,
   
   images: {
-    domains: ['github.com', 'avatars.githubusercontent.com'], // Add domains for image optimization
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'github.com',
+      },
+      {
+        protocol: 'https',
+        hostname: 'avatars.githubusercontent.com',
+      },
+    ],
     minimumCacheTTL: 60,
   },
 

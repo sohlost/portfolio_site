@@ -1,5 +1,6 @@
 import { Icons } from "@/components/icons";
-import { HomeIcon, NotebookIcon } from "lucide-react";
+import { url } from "inspector";
+import { HomeIcon, NotebookIcon, VideoIcon } from "lucide-react";
 
 export const DATA = {
   name: "Prasenjit",
@@ -23,9 +24,34 @@ export const DATA = {
     "git",
     "Linux",
   ],
+  videos: [
+    {
+      title: "Track Your Coding time for free",
+      description: "Learn how to track your code time with complete analytics and insights.",
+      thumbnail: "/video1.jpg",
+      url: "https://youtu.be/tBatfQjWxCg?si=sy2vZbCHoIYNME-3",
+      date: "2024-05-15"
+    },
+    {
+      title: "Fix multi-cursor in VS Code",
+      description: "Simple trick to fix multi-cursor in VS Code.",
+      thumbnail: "/video2.jpg",
+      url: "https://youtu.be/E9h7M6ZK_tA?si=ykzV7ARU4VMnbBRo",
+      date: "2024-07-01"
+    },
+    {
+     title: "Twitter(X)'s monetization",
+     description: "Is the policy broken? Let's find out.",
+     thumbnail: "/video3.jpg",
+     url: "https://youtu.be/Z3h1jt6jKLY?si=blL4l4FNco9WW9FT",
+     date: "2024-11-04"
+    }
+    
+  ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
+    { href: "/videos", icon: VideoIcon, label: "Videos" },
   ],
   contact: {
     email: "prasenjitt4e@gmail.com",

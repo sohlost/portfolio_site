@@ -8,7 +8,7 @@ import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { BlogCard } from "@/components/blog-card";
-import { FeaturedProducts } from "@/components/shop/featured-products";
+import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
 import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
@@ -138,10 +138,10 @@ export default function Page() {
         </div>
       </section>
       
-      {/* Shop Section */}
-      <section id="shop">
+      {/* Gadgets Section */}
+      <section id="gadgets">
         <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <FeaturedProducts />
+          <FeaturedGadgets />
         </BlurFade>
       </section>
       

@@ -1,12 +1,12 @@
 'use client';
 
 import React from 'react';
-import { ProductCard } from './product-card';
+import { GadgetCard } from './gadget-card';
 import { products } from '@/data/products';
 import { Button } from '@/components/ui/button';
 import Link from 'next/link';
 
-export function FeaturedGadgets() {
+const FeaturedGadgets = () => {
   const featuredGadgets = products.filter(product => product.featured).slice(0, 2);
 
   return (
@@ -14,7 +14,7 @@ export function FeaturedGadgets() {
       <h2 className="text-xl font-bold">Gadgets That I Use</h2>
       <div className="grid gap-6 sm:grid-cols-2">
         {featuredGadgets.map((product) => (
-          <ProductCard key={product.id} product={product} />
+          <GadgetCard key={product.id} product={product} />
         ))}
       </div>
       <Link
@@ -44,4 +44,6 @@ export function FeaturedGadgets() {
       </Link>
     </div>
   );
-}
+};
+
+export { FeaturedGadgets };

@@ -52,6 +52,7 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "/videos", icon: VideoIcon, label: "Videos" },
+    { href: "/shop", icon: Icons.shop, label: "Shop" },
   ],
   contact: {
     email: "prasenjitt4e@gmail.com",

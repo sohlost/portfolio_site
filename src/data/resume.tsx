@@ -40,11 +40,18 @@ export const DATA = {
       date: "2024-07-01"
     },
     {
-     title: "Twitter(X)'s monetization",
+     title: "Twitter(X)'s monetization (Hindi)",
      description: "Is the policy broken? Let's find out.",
      thumbnail: "/video3.jpg",
      url: "https://youtu.be/Z3h1jt6jKLY?si=blL4l4FNco9WW9FT",
      date: "2024-11-04"
+    },
+    {
+      title:"How to fix any kind of ban in twitter (Hindi)",
+      description: "Learn how to fix any kind of ban in twitter.",
+      thumbnail: "/video4.png",
+      url:"https://youtu.be/P7JRFrcXlQU",
+      date: "2024-12-24"
     }
     
   ],

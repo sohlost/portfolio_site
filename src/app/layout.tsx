@@ -8,7 +8,7 @@ import { Inter as FontSans } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { ScrollProgress } from "@/components/scroll-progress";
-import { CustomCursor } from "@/components/custom-cursor";
+// import { CustomCursor } from "@/components/custom-cursor";
 // import { Analytics } from "@vercel/analytics/react"
 
 const fontSans = FontSans({
@@ -82,7 +82,6 @@ export default function RootLayout({
         <ScrollProgress />
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>
-            <CustomCursor />
             {children}
             {/* <Analytics/> */}
             <Navbar />

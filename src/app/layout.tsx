@@ -24,6 +24,9 @@ export const metadata: Metadata = {
     template: `%s | Prasenjit Nayak`,
   },
   description: "Prasenjit Nayak is a Full Stack Developer from India, specializing in React, Next.js, TypeScript and Node.js. Visit my portfolio to learn more about my work and projects.",
+  verification: {
+    google: "-hh6IhDqq2ehQA92ykUXPEhlQWxTHFvptR9Fv_V0gDo",
+  },
   openGraph: {
     title: "Prasenjit Nayak | Full Stack Developer",
     description: "Full Stack Developer specializing in React, Next.js, TypeScript and Node.js. Check out my portfolio, projects and blog posts.",

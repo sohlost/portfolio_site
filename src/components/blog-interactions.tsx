@@ -32,6 +32,9 @@ export function BlogInteractions({ slug }: BlogInteractionsProps) {
         const response = await fetch(`/api/blog/like?slug=${slug}`);
         const data = await response.json();
         setLikes(data.likes);
+        // Check if the post was previously liked
+        const wasLiked = localStorage.getItem(`blog-${slug}-liked`) === 'true';
+        setIsLiked(wasLiked);
       } catch (error) {
         console.error('Failed to fetch likes:', error);
       }
@@ -52,9 +55,11 @@ export function BlogInteractions({ slug }: BlogInteractionsProps) {
         body: JSON.stringify({ slug }),
       });
       const data = await response.json();
-      setLikes(data.likes);
-      setIsLiked(true);
-      localStorage.setItem(`blog-${slug}-liked`, 'true');
+      if (response.ok) {
+        setLikes(data.likes);
+        setIsLiked(true);
+        localStorage.setItem(`blog-${slug}-liked`, 'true');
+      }
     } catch (error) {
       console.error('Failed to like post:', error);
     }

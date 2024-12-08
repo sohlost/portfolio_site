@@ -11,15 +11,11 @@ export async function POST(request: NextRequest) {
     }
 
     await connectToDatabase();
-    let interaction = await BlogInteraction.findOne({ slug });
-    
-    if (!interaction) {
-      interaction = await BlogInteraction.create({ slug, likes: 1 });
-    } else {
-      interaction.likes += 1;
-      interaction.lastLiked = new Date();
-      await interaction.save();
-    }
+    const interaction = await BlogInteraction.findOneAndUpdate(
+      { slug },
+      { $inc: { likes: 1 }, $set: { lastLiked: new Date() } },
+      { new: true, upsert: true, writeConcern: { w: 'majority' } }
+    );
     
     return NextResponse.json({ likes: interaction.likes });
   } catch (error) {
@@ -37,7 +33,11 @@ export async function GET(request: NextRequest) {
     }
 
     await connectToDatabase();
-    const interaction = await BlogInteraction.findOne({ slug });
+    const interaction = await BlogInteraction.findOne(
+      { slug },
+      null,
+      { readPreference: 'primary' }
+    );
     return NextResponse.json({ likes: interaction?.likes || 0 });
   } catch (error) {
     return NextResponse.json({ error: 'Failed to get likes' }, { status: 500 });

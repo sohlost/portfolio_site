@@ -19,6 +19,44 @@ const BLUR_FADE_DELAY = 0.04;
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Prasenjit Nayak",
+            alternateName: ["Prasen", "Star Knight"],
+            description: DATA.description,
+            image: `${DATA.url}/me.png`,
+            url: DATA.url,
+            sameAs: [
+              DATA.contact.social.GitHub.url,
+              DATA.contact.social.LinkedIn.url,
+              DATA.contact.social.X.url,
+              DATA.contact.social.Youtube.url,
+              DATA.contact.social.CodePen.url,
+            ],
+            jobTitle: "Full Stack Developer",
+            worksFor: {
+              "@type": "Organization",
+              name: "Freelance"
+            },
+            alumniOf: {
+              "@type": "CollegeOrUniversity",
+              name: "Trident Academy Of Technology"
+            },
+            address: {
+              "@type": "PostalAddress",
+              addressLocality: "Odisha",
+              addressCountry: "India"
+            },
+            email: DATA.contact.email,
+            telephone: DATA.contact.tel,
+            knowsAbout: DATA.skills
+          })
+        }}
+      />
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">

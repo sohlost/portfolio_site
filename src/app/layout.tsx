@@ -20,17 +20,25 @@ const fontSans = FontSans({
 export const metadata: Metadata = {
   metadataBase: new URL(DATA.url),
   title: {
-    default: DATA.name,
-    template: `%s | ${DATA.name}`,
+    default: "Prasenjit Nayak | Full Stack Developer",
+    template: `%s | Prasenjit Nayak`,
   },
-  description: DATA.description,
+  description: "Prasenjit Nayak is a Full Stack Developer from India, specializing in React, Next.js, TypeScript and Node.js. Visit my portfolio to learn more about my work and projects.",
   openGraph: {
-    title: `${DATA.name}`,
-    description: DATA.description,
+    title: "Prasenjit Nayak | Full Stack Developer",
+    description: "Full Stack Developer specializing in React, Next.js, TypeScript and Node.js. Check out my portfolio, projects and blog posts.",
     url: DATA.url,
-    siteName: `${DATA.name}`,
+    siteName: "Prasenjit Nayak - Portfolio",
     locale: "en_US",
     type: "website",
+    images: [
+      {
+        url: `${DATA.url}/me.png`,
+        width: 1200,
+        height: 630,
+        alt: "Prasenjit Nayak - Full Stack Developer"
+      }
+    ]
   },
   robots: {
     index: true,
@@ -44,14 +52,27 @@ export const metadata: Metadata = {
     },
   },
   twitter: {
-    title: `${DATA.name}`,
+    title: "Prasenjit Nayak | Full Stack Developer",
     card: "summary_large_image",
+    description: "Full Stack Developer from India. React, Next.js, TypeScript expert. View my work and get in touch.",
+    images: [`${DATA.url}/me.png`],
+    creator: "@Star_Knight12"
   },
-  verification: {
-    google: "",
-    yandex: "",
+  alternates: {
+    canonical: DATA.url
   },
-  keywords: ['developer', 'portfolio', 'react', 'nextjs'],
+  keywords: [
+    'Prasenjit',
+    'Prasenjit Nayak',
+    'Full Stack Developer',
+    'React Developer',
+    'Next.js Developer',
+    'TypeScript Developer',
+    'Web Developer India',
+    'Prasenjit Portfolio',
+    'Star Knight Developer',
+    'prasen.dev'
+  ],
 };
 
 export default function RootLayout({

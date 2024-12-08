@@ -3,15 +3,15 @@ import { url } from "inspector";
 import { HomeIcon, NotebookIcon, VideoIcon } from "lucide-react";
 
 export const DATA = {
-  name: "Prasenjit",
+  name: "Prasenjit Nayak",
   initials: "PN",
   url: "https://github.com/StarKnightt/prasendev",
   location: "Odisha, India",
   locationLink: "https://www.google.com/maps/place/odisha",
   description:
-    "I'm a developer from India who enjoys creating and building things that help people. I'm also quite active on Twitter!",
+    "Hi, I'm Prasenjit Nayak, a Full Stack Developer from India specializing in React, Next.js, and TypeScript. I create innovative web solutions and contribute to open-source projects.",
   summary:
-    "I Completed my B.tech Degree in [Computer Science and Information Technology](https://tat.ac.in/) at the end of 2024. Right Now, I'm learning Next.js and working on some [projects](https://github.com/StarKnightt) to sharpen my skills. I love contribute in Open-Source projects",
+    "I'm Prasenjit Nayak, a Computer Science graduate from [Trident Academy Of Technology](https://tat.ac.in/). I specialize in modern web development using Next.js and am actively working on [open-source projects](https://github.com/StarKnightt). I'm passionate about creating impactful solutions and sharing knowledge through my technical blog and YouTube channel.",
   avatarUrl: "/me.png",
   skills: [
     "React",

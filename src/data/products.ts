@@ -16,7 +16,7 @@ export const products: Product[] = [
     description: '4000 DPI, Lightweight, software support, 8 programmable buttons.',
     imageUrl: '/images/products/logitech.webp',
     amazonLink: 'https://amzn.to/3CYjyky',
-    price: '$28.27',
+    price: '₹2395.00',
     category: 'Computer and accessories',
     featured: true
   },
@@ -26,7 +26,7 @@ export const products: Product[] = [
     description: 'Do 5 tasks at once with this multi-function gadget.',
     imageUrl: '/images/products/gadget.webp',
     amazonLink: 'https://amzn.to/3D0VLR7',
-    price: '$2.33',
+    price: '₹197.00',
     category: 'Gadgets',
     featured: true
   },
@@ -36,7 +36,7 @@ export const products: Product[] = [
     description: 'Improve your system’s responsiveness run apps faster and multitask with ease.',
     imageUrl: '/images/products/Ram.webp',
     amazonLink: 'https://amzn.to/4gb4q1A',
-    price: '$15.76',
+    price: '₹1349.00',
     category: 'Computer and accessories',
   },
  
@@ -46,7 +46,7 @@ export const products: Product[] = [
     description: 'I have been using this product for 4 years now and it is still working perfectly.',
     imageUrl: '/images/products/stand.webp',  // Add image to this path
     amazonLink: 'https://amzn.to/4fVz0wr',  // Your affiliate link
-    price: '$4.71',
+    price: '₹399.00',
     category: 'Computer and accessories',  // Use existing category or create new
     featured: false  // Optional, default is false
   }

@@ -23,13 +23,20 @@ export function BlogInteractions({ slug }: BlogInteractionsProps) {
   const [likes, setLikes] = useState<number>(0);
   const [isLiked, setIsLiked] = useState<boolean>(false);
   const [showShare, setShowShare] = useState<boolean>(false);
+  const [isLoading, setIsLoading] = useState<boolean>(true);
+  const [error, setError] = useState<string | null>(null);
   const shareUrl = typeof window !== 'undefined' ? window.location.href : '';
   const title = typeof document !== 'undefined' ? document.title : '';
 
   useEffect(() => {
     const fetchLikes = async () => {
       try {
+        setIsLoading(true);
+        setError(null);
         const response = await fetch(`/api/blog/like?slug=${slug}`);
+        if (!response.ok) {
+          throw new Error('Failed to fetch likes');
+        }
         const data = await response.json();
         setLikes(data.likes);
         // Check if the post was previously liked
@@ -37,6 +44,9 @@ export function BlogInteractions({ slug }: BlogInteractionsProps) {
         setIsLiked(wasLiked);
       } catch (error) {
         console.error('Failed to fetch likes:', error);
+        setError('Failed to load likes count');
+      } finally {
+        setIsLoading(false);
       }
     };
 
@@ -44,9 +54,15 @@ export function BlogInteractions({ slug }: BlogInteractionsProps) {
   }, [slug]);
 
   const handleLike = async () => {
-    if (isLiked) return;
+    if (isLiked || isLoading) return;
     
     try {
+      setIsLoading(true);
+      setError(null);
+      // Optimistic update
+      setLikes(prev => prev + 1);
+      setIsLiked(true);
+      
       const response = await fetch('/api/blog/like', {
         method: 'POST',
         headers: {
@@ -54,14 +70,22 @@ export function BlogInteractions({ slug }: BlogInteractionsProps) {
         },
         body: JSON.stringify({ slug }),
       });
-      const data = await response.json();
-      if (response.ok) {
-        setLikes(data.likes);
-        setIsLiked(true);
-        localStorage.setItem(`blog-${slug}-liked`, 'true');
+      
+      if (!response.ok) {
+        throw new Error('Failed to update likes');
       }
+      
+      const data = await response.json();
+      setLikes(data.likes);
+      localStorage.setItem(`blog-${slug}-liked`, 'true');
     } catch (error) {
       console.error('Failed to like post:', error);
+      // Revert optimistic update on error
+      setLikes(prev => prev - 1);
+      setIsLiked(false);
+      setError('Failed to update like count');
+    } finally {
+      setIsLoading(false);
     }
   };
 
@@ -70,10 +94,12 @@ export function BlogInteractions({ slug }: BlogInteractionsProps) {
       <Button
         variant="ghost"
         size="sm"
-        className={`flex items-center gap-2 ${isLiked ? 'text-red-500' : ''}`}
+        className={`flex items-center gap-2 ${isLiked ? 'text-red-500' : ''} ${isLoading ? 'opacity-50 cursor-not-allowed' : ''}`}
         onClick={handleLike}
+        disabled={isLiked || isLoading}
+        aria-label={isLiked ? 'Already liked' : 'Like post'}
       >
-        <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''}`} />
+        <Heart className={`w-4 h-4 ${isLiked ? 'fill-current' : ''} ${isLoading ? 'animate-pulse' : ''}`} />
         <span>{likes} likes</span>
       </Button>
 

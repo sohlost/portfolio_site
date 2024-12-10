@@ -87,13 +87,9 @@ export default function Page() {
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <div className="flex flex-col gap-4">
-            <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-              {DATA.description}
-            </Markdown>
-            <div className="flex items-center gap-2">
-            </div>
-          </div>
+          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+            {DATA.summary}
+          </Markdown>
         </BlurFade>
       </section>
       
@@ -232,10 +228,8 @@ export default function Page() {
       
       <section id="contributions">
         <BlurFade delay={BLUR_FADE_DELAY * 10}>
-          <h2 className="text-2xl font-bold">GitHub Activity</h2>
-          <div className="space-y-4">
-            <GithubContributions />
-          </div>
+          <h2 className="text-xl font-bold">GitHub Contributions</h2>
+          <GithubContributions />
         </BlurFade>
       </section>
       <section id="projects">

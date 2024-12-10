@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTheme } from "next-themes";
-import { GitCommit } from "lucide-react";
+import { GitCommit, RefreshCw } from "lucide-react";
 
 interface Commit {
   sha: string;
@@ -20,42 +20,52 @@ interface Commit {
 export function GithubLatestCommits() {
   const [commits, setCommits] = React.useState<Commit[]>([]);
   const [loading, setLoading] = React.useState(true);
+  const [refreshing, setRefreshing] = React.useState(false);
   const { resolvedTheme } = useTheme();
 
-  React.useEffect(() => {
-    async function fetchCommits() {
-      try {
-        const response = await fetch(
-          "https://api.github.com/users/StarKnightt/events/public"
-        );
-        const events = await response.json();
-        
-        // Filter push events and get the latest commits
-        const latestCommits = events
-          .filter((event: any) => event.type === "PushEvent")
-          .slice(0, 2)
-          .map((event: any) => ({
-            sha: event.payload.commits[0].sha,
-            commit: {
-              message: event.payload.commits[0].message,
-              author: {
-                date: event.created_at
-              }
-            },
-            html_url: `https://github.com/${event.repo.name}/commit/${event.payload.commits[0].sha}`,
-            repo: event.repo.name
-          }));
+  const fetchCommits = React.useCallback(async () => {
+    try {
+      const response = await fetch(
+        "https://api.github.com/users/StarKnightt/events/public"
+      );
+      const events = await response.json();
+      
+      // Filter push events and get the latest commits
+      const latestCommits = events
+        .filter((event: any) => event.type === "PushEvent")
+        .slice(0, 2)
+        .map((event: any) => ({
+          sha: event.payload.commits[0].sha,
+          commit: {
+            message: event.payload.commits[0].message,
+            author: {
+              date: event.created_at
+            }
+          },
+          html_url: `https://github.com/${event.repo.name}/commit/${event.payload.commits[0].sha}`,
+          repo: event.repo.name
+        }));
 
-        setCommits(latestCommits);
-      } catch (error) {
-        console.error("Error fetching commits:", error);
-      } finally {
-        setLoading(false);
-      }
+      setCommits(latestCommits);
+    } catch (error) {
+      console.error("Error fetching commits:", error);
+    } finally {
+      setLoading(false);
+      setRefreshing(false);
     }
-
-    fetchCommits();
   }, []);
+
+  const handleRefresh = async () => {
+    setRefreshing(true);
+    await fetchCommits();
+  };
+
+  React.useEffect(() => {
+    fetchCommits();
+    // Auto-refresh every 5 minutes
+    const interval = setInterval(fetchCommits, 5 * 60 * 1000);
+    return () => clearInterval(interval);
+  }, [fetchCommits]);
 
   if (loading) {
     return (
@@ -70,7 +80,19 @@ export function GithubLatestCommits() {
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
     >
-      <h3 className="text-lg font-semibold mb-4">Latest Commits</h3>
+      <div className="flex justify-between items-center mb-4">
+        <h3 className="text-lg font-semibold">Latest Commits</h3>
+        <button
+          onClick={handleRefresh}
+          disabled={refreshing}
+          className="p-2 hover:bg-muted rounded-lg transition-colors"
+          title="Refresh commits"
+        >
+          <RefreshCw 
+            className={`w-4 h-4 text-muted-foreground ${refreshing ? 'animate-spin' : ''}`} 
+          />
+        </button>
+      </div>
       <div className="space-y-4">
         {commits.map((commit) => (
           <a

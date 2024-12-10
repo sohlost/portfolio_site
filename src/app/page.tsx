@@ -14,6 +14,7 @@ import Link from "next/link";
 import Markdown from "react-markdown";
 import { GithubContributions } from "@/components/github-calendar";
 import { GithubLatestCommits } from "@/components/github-latest-commits";
+import { DigitalClock } from "@/components/digital-clock";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -88,9 +89,14 @@ export default function Page() {
           <h2 className="text-xl font-bold">About</h2>
         </BlurFade>
         <BlurFade delay={BLUR_FADE_DELAY * 4}>
-          <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-            {DATA.summary}
-          </Markdown>
+          <div className="flex flex-col gap-4">
+            <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
+              {DATA.description}
+            </Markdown>
+            <div className="flex items-center gap-2">
+              <DigitalClock />
+            </div>
+          </div>
         </BlurFade>
       </section>
       

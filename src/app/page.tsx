@@ -13,50 +13,14 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { GithubContributions } from "@/components/github-calendar";
+import { PersonSchema } from "@/components/schema/person-schema";
 
 const BLUR_FADE_DELAY = 0.04;
 
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{
-          __html: JSON.stringify({
-            "@context": "https://schema.org",
-            "@type": "Person",
-            name: "Prasenjit Nayak",
-            alternateName: ["Prasen", "Star Knight"],
-            description: DATA.description,
-            image: `${DATA.url}/me.png`,
-            url: DATA.url,
-            sameAs: [
-              DATA.contact.social.GitHub.url,
-              DATA.contact.social.LinkedIn.url,
-              DATA.contact.social.X.url,
-              DATA.contact.social.Youtube.url,
-              DATA.contact.social.CodePen.url,
-            ],
-            jobTitle: "Full Stack Developer",
-            worksFor: {
-              "@type": "Organization",
-              name: "Freelance"
-            },
-            alumniOf: {
-              "@type": "CollegeOrUniversity",
-              name: "Trident Academy Of Technology"
-            },
-            address: {
-              "@type": "PostalAddress",
-              addressLocality: "Odisha",
-              addressCountry: "India"
-            },
-            email: DATA.contact.email,
-            telephone: DATA.contact.tel,
-            knowsAbout: DATA.skills
-          })
-        }}
-      />
+      <PersonSchema />
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -203,7 +167,7 @@ export default function Page() {
                     variant="outline" 
                     className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
                   >
-                    View Other Videos
+                    View All Videos
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
@@ -358,6 +322,25 @@ export default function Page() {
           </BlurFade>
         </div>
       </section>
+      <footer className="mt-20 border-t py-8">
+        <BlurFade delay={BLUR_FADE_DELAY * 15}>
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-sm text-muted-foreground">
+                Copyright ©{new Date().getFullYear()} {DATA.name}. All rights reserved.
+              </div>
+              <div className="flex space-x-4">
+                <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-foreground">
+                  Sitemap
+                </Link>
+                <Link href="/rss.xml" className="text-sm text-muted-foreground hover:text-foreground">
+                  RSS
+                </Link>
+              </div>
+            </div>
+          </div>
+        </BlurFade>
+      </footer>
     </main>
   );
 }

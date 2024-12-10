@@ -13,7 +13,6 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { GithubContributions } from "@/components/github-calendar";
-import { GithubLatestCommits } from "@/components/github-latest-commits";
 import { DigitalClock } from "@/components/digital-clock";
 
 const BLUR_FADE_DELAY = 0.04;
@@ -238,7 +237,6 @@ export default function Page() {
           <h2 className="text-2xl font-bold">GitHub Activity</h2>
           <div className="space-y-4">
             <GithubContributions />
-            <GithubLatestCommits />
           </div>
         </BlurFade>
       </section>

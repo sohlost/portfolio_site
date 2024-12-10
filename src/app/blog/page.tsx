@@ -1,10 +1,15 @@
 import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 import Link from "next/link";
+import { DATA } from "@/data/resume";
 
 export const metadata = {
   title: "Blog",
   description: "My thoughts on software development, life, and more.",
+  metadataBase: new URL(DATA.url),
+  alternates: {
+    canonical: `${DATA.url}/blog`,
+  },
 };
 
 const BLUR_FADE_DELAY = 0.04;

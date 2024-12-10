@@ -13,7 +13,6 @@ import { DATA } from "@/data/resume";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { GithubContributions } from "@/components/github-calendar";
-import { DigitalClock } from "@/components/digital-clock";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -93,7 +92,6 @@ export default function Page() {
               {DATA.description}
             </Markdown>
             <div className="flex items-center gap-2">
-              <DigitalClock />
             </div>
           </div>
         </BlurFade>

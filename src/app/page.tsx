@@ -140,56 +140,6 @@ export default function Page() {
         </div>
       </section>
       
-      {/* Gadgets Section */}
-      <section id="gadgets">
-        <BlurFade delay={BLUR_FADE_DELAY * 11}>
-          <FeaturedGadgets />
-        </BlurFade>
-      </section>
-      
-      {/* Videos Section */}
-      <section id="videos">
-        <BlurFade delay={BLUR_FADE_DELAY * 12}>
-          <div className="space-y-4">
-            <h2 className="text-xl font-bold">Recent Videos</h2>
-            <div className="grid gap-6 sm:grid-cols-2">
-              {DATA.videos.slice(0, 2).map((video, idx) => (
-                <BlurFade key={video.url} delay={BLUR_FADE_DELAY * 13 + idx * 0.05}>
-                  <VideoCard video={video} />
-                </BlurFade>
-              ))}
-              <BlurFade delay={BLUR_FADE_DELAY * 14}>
-                <Link
-                  href="/videos"
-                  className="mt-4 block"
-                >
-                  <Button 
-                    variant="outline" 
-                    className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
-                  >
-                    View All Videos
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </Button>
-                </Link>
-              </BlurFade>
-            </div>
-          </div>
-        </BlurFade>
-      </section>
-      
       <section id="contributions">
         <BlurFade delay={BLUR_FADE_DELAY * 10}>
           <h2 className="text-xl font-bold">GitHub Contributions</h2>
@@ -298,6 +248,57 @@ export default function Page() {
           ))}
         </div>
       </section>
+      
+      {/* Gadgets Section */}
+      <section id="gadgets">
+        <BlurFade delay={BLUR_FADE_DELAY * 9}>
+          <FeaturedGadgets />
+        </BlurFade>
+      </section>
+
+      {/* Videos Section */}
+      <section id="videos">
+        <BlurFade delay={BLUR_FADE_DELAY * 10}>
+          <div className="space-y-4">
+            <h2 className="text-xl font-bold">Recent Videos</h2>
+            <div className="grid gap-6 sm:grid-cols-2">
+              {DATA.videos.slice(0, 2).map((video, idx) => (
+                <BlurFade key={video.url} delay={BLUR_FADE_DELAY * 11 + idx * 0.05}>
+                  <VideoCard video={video} />
+                </BlurFade>
+              ))}
+              <BlurFade delay={BLUR_FADE_DELAY * 12}>
+                <Link
+                  href="/videos"
+                  className="mt-4 block"
+                >
+                  <Button 
+                    variant="outline" 
+                    className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                  >
+                    View All Videos
+                    <svg
+                      xmlns="http://www.w3.org/2000/svg"
+                      className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
+                      fill="none"
+                      viewBox="0 0 24 24"
+                      stroke="currentColor"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+                      />
+                    </svg>
+                  </Button>
+                </Link>
+              </BlurFade>
+            </div>
+          </div>
+        </BlurFade>
+      </section>
+
       <section id="contact">
         <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
           <BlurFade delay={BLUR_FADE_DELAY * 16}>
@@ -327,7 +328,7 @@ export default function Page() {
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
               <div className="text-sm text-muted-foreground">
-                Copyright ©{new Date().getFullYear()} {DATA.name}. All rights reserved.
+                Copyright &copy;{new Date().getFullYear()} {DATA.name}. All rights reserved.
               </div>
               <div className="flex space-x-4">
                 <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-foreground">

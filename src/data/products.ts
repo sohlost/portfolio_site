@@ -18,7 +18,7 @@ export const products: Product[] = [
     amazonLink: 'https://amzn.to/3CYjyky',
     price: '₹2395.00',
     category: 'Computer and accessories',
-    featured: true
+    featured: false
   },
   {
     id: '2',
@@ -49,5 +49,16 @@ export const products: Product[] = [
     price: '₹399.00',
     category: 'Computer and accessories',  // Use existing category or create new
     featured: false  // Optional, default is false
+  },
+
+  {
+    id: '5',  // Always use a unique ID
+    title: 'Transparent wireless mouse',
+    description: 'I personally love this product for its design and functionality.',
+    imageUrl: '/images/products/transparent-mouse.webp',  // Add image to this path
+    amazonLink: 'https://amzn.to/49ytXzE',  // Your affiliate link
+    price: '₹679.00',
+    category: 'Computer and accessories',  // Use existing category or create new
+    featured: true  // Optional, default is false
   }
 ];

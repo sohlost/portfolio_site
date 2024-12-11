@@ -10,6 +10,7 @@ import "./globals.css";
 import { ScrollProgress } from "@/components/scroll-progress";
 // import { CustomCursor } from "@/components/custom-cursor";
 import { VisitorCounter } from "@/components/visitor-counter";
+import { JsonLd } from "@/components/json-ld";
 // import { Analytics } from "@vercel/analytics/react"
 
 const fontSans = FontSans({
@@ -23,9 +24,16 @@ export const metadata: Metadata = {
     default: "Prasenjit Nayak | Full Stack Developer",
     template: `%s | Prasenjit Nayak`,
   },
-  description: "Prasenjit Nayak is a Full Stack Developer from India, specializing in React, Next.js, TypeScript and Node.js. Visit my portfolio to learn more about my work and projects.",
+  description: "Prasenjit Nayak is a Full Stack Developer from India, with expertise in React, Next.js, TypeScript and Node.js. I create modern web applications and have a passion for clean, efficient code. View my portfolio to see my latest projects and technical blog posts.",
+  keywords: ["Prasenjit Nayak", "Full Stack Developer", "React Developer", "Next.js Developer", "TypeScript Developer", "Node.js Developer", "Web Developer India", "Software Engineer"],
+  authors: [{ name: "Prasenjit Nayak" }],
+  creator: "Prasenjit Nayak",
+  publisher: "Prasenjit Nayak",
   verification: {
     google: "-hh6IhDqq2ehQA92ykUXPEhlQWxTHFvptR9Fv_V0gDo",
+  },
+  alternates: {
+    canonical: DATA.url,
   },
   openGraph: {
     title: "Prasenjit Nayak | Full Stack Developer",
@@ -43,39 +51,23 @@ export const metadata: Metadata = {
       }
     ]
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Prasenjit Nayak | Full Stack Developer',
+    description: 'Full Stack Developer specializing in React, Next.js, TypeScript and Node.js',
+    images: [`${DATA.url}/me.png`],
+  },
   robots: {
     index: true,
     follow: true,
     googleBot: {
       index: true,
       follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
     },
   },
-  twitter: {
-    title: "Prasenjit Nayak | Full Stack Developer",
-    card: "summary_large_image",
-    description: "Full Stack Developer from India. React, Next.js, TypeScript expert. View my work and get in touch.",
-    images: [`${DATA.url}/me.png`],
-    creator: "@Star_Knight12"
-  },
-  alternates: {
-    canonical: DATA.url
-  },
-  keywords: [
-    'Prasenjit',
-    'Prasenjit Nayak',
-    'Full Stack Developer',
-    'React Developer',
-    'Next.js Developer',
-    'TypeScript Developer',
-    'Web Developer India',
-    'Prasenjit Portfolio',
-    'Star Knight Developer',
-    'prasen.dev'
-  ],
 };
 
 export default function RootLayout({
@@ -104,6 +96,7 @@ export default function RootLayout({
             })(window, document, "clarity", "script", "p73rco1nfp");
           `}
         </Script>
+        <JsonLd />
         <ScrollProgress />
         <ThemeProvider attribute="class" defaultTheme="light">
           <TooltipProvider delayDuration={0}>

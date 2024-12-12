@@ -7,13 +7,33 @@ import { VideoCard } from "@/components/video-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { BlogCard } from "@/components/blog-card";
-import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
+import dynamic from 'next/dynamic';
 import { DATA } from "@/data/resume";
 import Link from "next/link";
+import Image from "next/image";
 import Markdown from "react-markdown";
-import { GithubContributions } from "@/components/github-calendar";
 import { PersonSchema } from "@/components/schema/person-schema";
+import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
+
+const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
+  ssr: true,
+  loading: () => <div className="h-[120px] animate-pulse bg-muted rounded-lg" />
+});
+
+const GithubContributions = dynamic(() => import("@/components/github-calendar").then(mod => mod.GithubContributions), {
+  ssr: false,
+  loading: () => <div className="h-[200px] animate-pulse bg-muted rounded-lg" />
+});
+
+const ProjectCardDynamic = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), {
+  ssr: true,
+  loading: () => <div className="h-[300px] animate-pulse bg-muted rounded-lg" />
+});
+
+const HackathonCardDynamic = dynamic(() => import("@/components/hackathon-card").then(mod => mod.HackathonCard), {
+  ssr: true,
+  loading: () => <div className="h-[300px] animate-pulse bg-muted rounded-lg" />
+});
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -39,7 +59,13 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
-                <AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
+                <AvatarImage 
+                  alt={DATA.name} 
+                  src={DATA.avatarUrl}
+                  width={112}
+                  height={112}
+                  loading="eager"
+                />
                 <AvatarFallback>{DATA.initials}</AvatarFallback>
               </Avatar>
             </BlurFade>
@@ -171,7 +197,7 @@ export default function Page() {
                 key={project.title}
                 delay={BLUR_FADE_DELAY * 12 + id * 0.05}
               >
-                <ProjectCard
+                <ProjectCardDynamic
                   href={project.href}
                   key={project.title}
                   title={project.title}
@@ -211,7 +237,7 @@ export default function Page() {
                   key={project.title + project.dates}
                   delay={BLUR_FADE_DELAY * 15 + id * 0.05}
                 >
-                  <HackathonCard
+                  <HackathonCardDynamic
                     title={project.title}
                     description={project.description}
                     location={project.location}

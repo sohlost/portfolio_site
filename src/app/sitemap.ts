@@ -14,17 +14,33 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     priority: 0.8,
   }));
 
-  // Define core pages
+
   const routes = [
-    '',
-    '/blog',
-    '/videos',
-    '/gadgets',
-  ].map((route) => ({
+    {
+      route: '/',
+      changeFreq: 'weekly' as const,
+      priority: 1.0,
+    },
+    {
+      route: '/blog',
+      changeFreq: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      route: '/videos',
+      changeFreq: 'weekly' as const,
+      priority: 0.8,
+    },
+    {
+      route: '/gadgets',
+      changeFreq: 'monthly' as const,
+      priority: 0.7,
+    },
+  ].map(({ route, changeFreq, priority }) => ({
     url: `${baseUrl}${route}`,
     lastModified: new Date(),
-    changeFrequency: 'daily' as const,
-    priority: route === '' ? 1.0 : 0.8,
+    changeFrequency: changeFreq,
+    priority: priority,
   }));
 
   return [...routes, ...blogUrls];

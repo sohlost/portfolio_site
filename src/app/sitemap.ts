@@ -1,9 +1,8 @@
 import { MetadataRoute } from "next";
 import { getBlogPosts } from "@/data/blog";
-import { DATA } from "@/data/resume";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = DATA.url;
+  const baseUrl = "https://prasen.dev";
 
   // Get all blog posts
   const posts = await getBlogPosts();
@@ -13,7 +12,6 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     changeFrequency: 'weekly' as const,
     priority: 0.8,
   }));
-
 
   const routes = [
     {

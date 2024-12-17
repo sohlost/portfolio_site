@@ -12,8 +12,15 @@
     <title>Is Computer Science Saturated?</title>
     <link>${DATA.url}/blog/hello-world</link>
     <guid>${DATA.url}/blog/hello-world</guid>
-    <pubDate>Tue, 18 Jun 2024 00:00:00 GMT</pubDate>
-    <description>Blogs are preparing to launch. Stay tuned!</description>
+    <pubDate>Tue, 07 Dec 2024 00:00:00 GMT</pubDate>
+    <description>Let's know about the reality of Computer science degrees</description>
+  </item>
+  <item>
+    <title>Is Ubuntu completely bloated?</title>
+    <link>${DATA.url}/blog/ubuntu-is-bloated</link>
+    <guid>${DATA.url}/blog/ubuntu-is-bloated</guid>
+    <pubDate>Tue, 16 Dec 2024 00:00:00 GMT</pubDate>
+    <description>Is most popular linux distro is bloated? Let's know about it.</description>
   </item>
 </channel>
 </rss>

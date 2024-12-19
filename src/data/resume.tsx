@@ -1,6 +1,7 @@
 import { Icons } from "@/components/icons";
 import { url } from "inspector";
-import { HomeIcon, NotebookIcon, VideoIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, ThumbsDown, VideoIcon } from "lucide-react";
+import { title } from "process";
 
 export const DATA = {
   name: "Prasenjit Nayak",
@@ -52,7 +53,14 @@ export const DATA = {
       thumbnail: "/video4.png",
       url:"https://youtu.be/P7JRFrcXlQU",
       date: "2024-12-24"
-    }
+    },
+    {
+      title:"Microsoft's new shocking move (Hindi)",
+      description: "GitHub Copilot is now free for everyone, let's see what's the catch.",
+      thumbnail: "/video5.png",
+      url:"https://www.youtube.com/watch?v=uIJOUe8T3_I",
+      date: "2024-12-19"
+    },
     
   ],
   navbar: [

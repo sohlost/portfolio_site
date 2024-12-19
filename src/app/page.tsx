@@ -288,7 +288,7 @@ export default function Page() {
           <div className="space-y-4">
             <h2 className="text-xl font-bold">Recent Videos</h2>
             <div className="grid gap-6 sm:grid-cols-2">
-              {DATA.videos.slice(0, 2).map((video, idx) => (
+              {DATA.videos.slice(-2).map((video, idx) => (
                 <BlurFade key={video.url} delay={BLUR_FADE_DELAY * 11 + idx * 0.05}>
                   <VideoCard video={video} />
                 </BlurFade>

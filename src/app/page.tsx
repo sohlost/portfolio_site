@@ -14,6 +14,7 @@ import Image from "next/image";
 import Markdown from "react-markdown";
 import { PersonSchema } from "@/components/schema/person-schema";
 import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
+import { Metadata } from 'next';
 
 const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
   ssr: true,
@@ -36,6 +37,34 @@ const HackathonCardDynamic = dynamic(() => import("@/components/hackathon-card")
 });
 
 const BLUR_FADE_DELAY = 0.04;
+
+export const metadata: Metadata = {
+  title: DATA.name,
+  description: DATA.summary,
+  openGraph: {
+    title: DATA.name,
+    description: DATA.summary,
+    url: DATA.url,
+    siteName: DATA.name,
+    images: [
+      {
+        url: 'https://prasen.dev/portfolio.png',
+        width: 1200,
+        height: 630,
+        alt: `${DATA.name}'s Portfolio`,
+      },
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: DATA.name,
+    description: DATA.summary,
+    creator: '@' + 'Star_Knight12',
+    images: ['https://prasen.dev/portfolio.png'],
+  },
+};
 
 export default function Page() {
   return (

@@ -20,7 +20,7 @@ export default function ProjectsPage() {
           <BlurFade key={project.title} delay={BLUR_FADE_DELAY * 2 + id * 0.05}>
             <ProjectCard 
               {...project} 
-              tags={Array.from(project.tags || [])}
+              tags={Array.from(project.technologies)}
             />
           </BlurFade>
         ))}

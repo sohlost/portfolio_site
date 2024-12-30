@@ -1,20 +1,7 @@
 import { Icons } from "@/components/icons";
 import { url } from "inspector";
-import { HomeIcon, NotebookIcon, ThumbsDown, VideoIcon, FolderIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, ThumbsDown, VideoIcon } from "lucide-react";
 import { title } from "process";
-
-export interface Project {
-  title: string;
-  href: string;
-  description: string;
-  dates: string;
-  image?: string;
-  links?: {
-    type: string;
-    href: string;
-    icon: React.ReactNode;
-  }[];
-}
 
 export const DATA = {
   name: "Prasenjit Nayak",
@@ -80,7 +67,6 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "/videos", icon: VideoIcon, label: "Videos" },
-    { href: "/projects", label: "Projects", icon: FolderIcon },
     { href: "/gadgets", icon: Icons.shop, label: "Gadgets" },
   ],
   contact: {
@@ -260,7 +246,6 @@ export const DATA = {
       image: "",
       video:
         "https://video.gumlet.io/6745e593080b60408ca085f7/6745e5e5080b60408ca08984/download.mp4",
-      tags: [],
     },
     {
       title: "Coffee-Website",
@@ -291,7 +276,6 @@ export const DATA = {
       ],
       image: "",
       video: "https://video.gumlet.io/6745e593080b60408ca085f7/6745ea2d080b60408ca0bc08/download.mp4",
-      tags: [],
     },
     {
       title: "GitHub Buddy Finder",
@@ -323,7 +307,6 @@ export const DATA = {
       ],
       image: "",
       video: "https://video.gumlet.io/6745e593080b60408ca085f7/6745ec82c84c6b7e105c3ee5/download.mp4",
-      tags: [],
     },
     {
       title: "Solar System",
@@ -351,7 +334,6 @@ export const DATA = {
       image: "",
       video:
         "https://video.gumlet.io/6745e593080b60408ca085f7/6745ef75b79a267f99668bda/download.mp4",
-      tags: [],
     },
   ],
   hackathons: [

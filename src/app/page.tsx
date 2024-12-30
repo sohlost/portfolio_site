@@ -212,7 +212,7 @@ export default function Page() {
                 <ProjectCard 
                   key={project.title} 
                   {...project}
-                  tags={Array.from(project.tags || [])}
+                  tags={Array.from(project.technologies)}
                 />
               ))}
             </div>

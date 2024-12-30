@@ -10,7 +10,7 @@ export const DATA = {
   location: "Odisha, India",
   locationLink: "https://www.google.com/maps/place/odisha",
   description:
-    "A Full Stack Developer from India, trying to make some impact in web development. Code is an art.",
+    "A Full Stack Developer from India, Code is an art be the artist!",
   summary:
     "A Computer Science graduate from [Trident Academy Of Technology](https://tat.ac.in/), specialize in modern web development and am actively working on [open-source projects](https://github.com/StarKnightt). I'm passionate about creating impactful solutions and sharing knowledge through my technical blog and YouTube channel as well as on X(Twitter) too.",
   avatarUrl: "/me.png",
@@ -24,6 +24,8 @@ export const DATA = {
     "JavaScript",
     "git",
     "Linux",
+    "RestAPI",
+    "AI API",
   ],
   videos: [
     {

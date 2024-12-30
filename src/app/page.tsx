@@ -365,14 +365,14 @@ export default function Page() {
             
             <a 
               href="mailto:prasenjitt4e@gmail.com" 
-              className="flex items-center gap-2 underline hover:opacity-70 transition-opacity"
+              className="flex items-center gap-2 underline underline-offset-4 hover:opacity-70 transition-opacity"
             >
               <Icons.email className="size-4" />
               prasenjitt4e@gmail.com
             </a>
 
             <div className="mt-8">
-              <h2 className="text-xl font-medium">Want to chat? Let's connect on X (Twitter)!</h2>
+              <h2 className="text-xl font-medium">Let's do a quick chat on X (Twitter)</h2>
               
               <a
                 href={DATA.contact.social.X.url}

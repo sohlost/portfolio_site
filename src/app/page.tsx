@@ -15,6 +15,7 @@ import Markdown from "react-markdown";
 import { PersonSchema } from "@/components/schema/person-schema";
 import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
 import { Metadata } from 'next';
+import { Icons } from "@/components/icons";
 
 const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
   ssr: true,
@@ -115,7 +116,7 @@ export default function Page() {
       <section id="connect">
         <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
           <div className="space-y-4">
-            <h2 className="text-xl font-bold">Let's Talk 💬</h2>
+            <h2 className="text-xl font-bold">Let's collaborate 🤝🏻</h2>
             <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
               {Object.entries(DATA.contact.social).map(([name, social], idx) => (
                 <BlurFade key={name} delay={BLUR_FADE_DELAY * 5 + idx * 0.05}>
@@ -357,28 +358,33 @@ export default function Page() {
       </section>
 
       <section id="contact">
-        <div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-          <BlurFade delay={BLUR_FADE_DELAY * 16}>
-            <div className="space-y-3">
-              <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                Contact
-              </div>
-              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                Let's Connect !
-              </h2>
-              <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                Want to talk? Just text me a{" "}
-                <Link
-                  href={DATA.contact.social.X.url}
-                  className="text-blue-500 hover:underline"
-                >
-                  with a direct question on twitter
-                </Link>{" "}
-                and I&apos;ll respond as soon as possible.
-              </p>
+        <BlurFade delay={BLUR_FADE_DELAY * 16}>
+          <div className="space-y-4">
+          <h2 className="text-xl font-medium">Contact:</h2>
+            <h2 className="text-xl font-medium">Feel free to reach out to me via email:</h2>
+            
+            <a 
+              href="mailto:prasenjitt4e@gmail.com" 
+              className="flex items-center gap-2 underline hover:opacity-70 transition-opacity"
+            >
+              <Icons.email className="size-4" />
+              prasenjitt4e@gmail.com
+            </a>
+
+            <div className="mt-8">
+              <h2 className="text-xl font-medium">Want to chat? Let's connect on X (Twitter)!</h2>
+              
+              <a
+                href={DATA.contact.social.X.url}
+                target="_blank"
+                rel="noopener noreferrer" 
+                className="inline-block mt-4 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
+              >
+                Talk on X
+              </a>
             </div>
-          </BlurFade>
-        </div>
+          </div>
+        </BlurFade>
       </section>
       <footer className="mt-20 border-t py-8">
         <BlurFade delay={BLUR_FADE_DELAY * 15}>

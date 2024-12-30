@@ -1,6 +1,6 @@
 import { Icons } from "@/components/icons";
 import { url } from "inspector";
-import { HomeIcon, NotebookIcon, ThumbsDown, VideoIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, ThumbsDown, VideoIcon, FolderIcon } from "lucide-react";
 import { title } from "process";
 
 export const DATA = {
@@ -10,9 +10,9 @@ export const DATA = {
   location: "Odisha, India",
   locationLink: "https://www.google.com/maps/place/odisha",
   description:
-    "Hi, I'm Prasenjit Nayak, a Full Stack Developer from India specializing in React, Next.js, and TypeScript. I create innovative web solutions and contribute to open-source projects.",
+    "A Full Stack Developer from India, trying to make some impact in web development. Code is an art.",
   summary:
-    "I'm Prasenjit Nayak, a Computer Science graduate from [Trident Academy Of Technology](https://tat.ac.in/). I specialize in modern web development using Next.js and am actively working on [open-source projects](https://github.com/StarKnightt). I'm passionate about creating impactful solutions and sharing knowledge through my technical blog and YouTube channel.",
+    "A Computer Science graduate from [Trident Academy Of Technology](https://tat.ac.in/), specialize in modern web development and am actively working on [open-source projects](https://github.com/StarKnightt). I'm passionate about creating impactful solutions and sharing knowledge through my technical blog and YouTube channel as well as on X(Twitter) too.",
   avatarUrl: "/me.png",
   skills: [
     "React",
@@ -67,6 +67,7 @@ export const DATA = {
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
     { href: "/videos", icon: VideoIcon, label: "Videos" },
+    { href: "/projects", icon: FolderIcon, label: "Projects" },
     { href: "/gadgets", icon: Icons.shop, label: "Gadgets" },
   ],
   contact: {

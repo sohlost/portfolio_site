@@ -60,5 +60,5 @@ export const products: Product[] = [
     price: '₹679.00',
     category: 'Computer and accessories',  // Use existing category or create new
     featured: true  // Optional, default is false
-  }
+  },
 ];

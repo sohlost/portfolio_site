@@ -16,8 +16,8 @@ import { PersonSchema } from "@/components/schema/person-schema";
 import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
 import { Metadata } from 'next';
 import { Icons } from "@/components/icons";
-import { Meteors } from "@/components/ui/meteors";
 import ShinyButton from "@/components/ui/shiny-button";
+import { RainbowButton } from "@/components/ui/rainbow-button";
 
 const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
   ssr: true,
@@ -180,11 +180,11 @@ export default function Page() {
                 href="/blog"
                 className="mt-4 block"
               >
-                <ShinyButton
-                  className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] font-semibold"
+                <RainbowButton
+                  className="w-full sm:w-[160px] px-4 py-2 group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] font-bold text-sm"
                 >
-                  Read More Blogs→
-                </ShinyButton>
+                  Read More Blogs
+                </RainbowButton>
               </Link>
             </div>
           </BlurFade>
@@ -216,26 +216,11 @@ export default function Page() {
               href="/projects"
               className="mt-4 block"
             >
-              <Button
-                variant="outline"
-                className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+              <ShinyButton
+                className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] font-semibold"
               >
-                View All Projects
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                  />
-                </svg>
-              </Button>
+                View All Projects →
+              </ShinyButton>
             </Link>
           </BlurFade>
         </div>
@@ -325,26 +310,11 @@ export default function Page() {
                   href="/videos"
                   className="mt-4 block"
                 >
-                  <Button
-                    variant="outline"
-                    className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                  <RainbowButton
+                    className="w-full sm:w-[160px] px-4 py-2 group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] font-bold text-center"
                   >
-                    View All Videos
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
-                      className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth={2}
-                        d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                      />
-                    </svg>
-                  </Button>
+                    All Videos →
+                  </RainbowButton>
                 </Link>
               </BlurFade>
             </div>

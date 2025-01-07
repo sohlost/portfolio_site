@@ -12,6 +12,7 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { VisitorCounter } from "@/components/visitor-counter";
 import { JsonLd } from "@/components/json-ld";
 // import { Analytics } from "@vercel/analytics/react"
+import { MeteorsBackground } from "@/components/meteors-background";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -80,10 +81,11 @@ export default function RootLayout({
       <head />
       <body
         className={cn(
-          "min-h-screen bg-background font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6",
+          "min-h-screen bg-background/50 font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6 relative",
           fontSans.variable
         )}
       >
+        <MeteorsBackground />
         <Script
           id="microsoft-clarity"
           strategy="afterInteractive"

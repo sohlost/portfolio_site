@@ -16,6 +16,7 @@ import { PersonSchema } from "@/components/schema/person-schema";
 import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
 import { Metadata } from 'next';
 import { Icons } from "@/components/icons";
+import { Meteors } from "@/components/ui/meteors";
 
 const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
   ssr: true,
@@ -70,7 +71,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <PersonSchema />
+      <PersonSchema />      
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">

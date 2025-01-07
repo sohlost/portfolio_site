@@ -17,6 +17,7 @@ import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
 import { Metadata } from 'next';
 import { Icons } from "@/components/icons";
 import { Meteors } from "@/components/ui/meteors";
+import ShinyButton from "@/components/ui/shiny-button";
 
 const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
   ssr: true,
@@ -71,7 +72,7 @@ export const metadata: Metadata = {
 export default function Page() {
   return (
     <main className="flex flex-col min-h-[100dvh] space-y-10">
-      <PersonSchema />      
+      <PersonSchema />
       <section id="hero">
         <div className="mx-auto w-full max-w-2xl space-y-8">
           <div className="gap-2 flex justify-between">
@@ -90,8 +91,8 @@ export default function Page() {
             </div>
             <BlurFade delay={BLUR_FADE_DELAY}>
               <Avatar className="size-28 border">
-                <AvatarImage 
-                  alt={DATA.name} 
+                <AvatarImage
+                  alt={DATA.name}
                   src={DATA.avatarUrl}
                   width={112}
                   height={112}
@@ -113,7 +114,7 @@ export default function Page() {
           </Markdown>
         </BlurFade>
       </section>
-      
+
       <section id="connect">
         <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
           <div className="space-y-4">
@@ -136,7 +137,7 @@ export default function Page() {
           </div>
         </BlurFade>
       </section>
-      
+
       <section id="skills">
         <div className="flex min-h-0 flex-col gap-y-3">
           <BlurFade delay={BLUR_FADE_DELAY * 9}>
@@ -167,36 +168,29 @@ export default function Page() {
                   slug: "hello-world"
                 }}
               />
+              <BlogCard
+    post={{
+      title: "Web Developement",
+      publishedAt: "2024-06-19",
+      summary: "Learn how to create a portfolio website using Next.js, Tailwind CSS, and TypeScript",
+      slug: "nextjs-portfolio"
+    }}
+  />
               <Link
                 href="/blog"
                 className="mt-4 block"
               >
-                <Button 
-                  variant="outline" 
-                  className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
+                <ShinyButton
+                  className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] font-semibold"
                 >
-                  Read More Posts
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    className="h-4 w-4 ml-2 transition-transform duration-300 group-hover:translate-x-1"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-                    />
-                  </svg>
-                </Button>
+                  Read More Blogs→
+                </ShinyButton>
               </Link>
             </div>
           </BlurFade>
         </div>
       </section>
-      
+
       <section id="contributions">
         <BlurFade delay={BLUR_FADE_DELAY * 10}>
           <h2 className="text-xl font-bold">GitHub Contributions</h2>
@@ -211,8 +205,8 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <div className="grid gap-4 sm:grid-cols-2">
               {DATA.projects.slice(0, 4).map((project) => (
-                <ProjectCard 
-                  key={project.title} 
+                <ProjectCard
+                  key={project.title}
                   {...project}
                   tags={Array.from(project.technologies)}
                 />
@@ -222,8 +216,8 @@ export default function Page() {
               href="/projects"
               className="mt-4 block"
             >
-              <Button 
-                variant="outline" 
+              <Button
+                variant="outline"
                 className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
               >
                 View All Projects
@@ -307,7 +301,7 @@ export default function Page() {
           ))}
         </div>
       </section>
-      
+
       {/* Gadgets Section */}
       <section id="gadgets">
         <BlurFade delay={BLUR_FADE_DELAY * 9}>
@@ -331,8 +325,8 @@ export default function Page() {
                   href="/videos"
                   className="mt-4 block"
                 >
-                  <Button 
-                    variant="outline" 
+                  <Button
+                    variant="outline"
                     className="w-full sm:w-auto group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98]"
                   >
                     View All Videos
@@ -361,11 +355,11 @@ export default function Page() {
       <section id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <div className="space-y-4">
-          <h2 className="text-xl font-medium">Contact:</h2>
+            <h2 className="text-xl font-medium">Contact:</h2>
             <h2 className="text-xl font-medium">Feel free to reach out to me via email:</h2>
-            
-            <a 
-              href="mailto:prasenjitt4e@gmail.com" 
+
+            <a
+              href="mailto:prasenjitt4e@gmail.com"
               className="flex items-center gap-2 underline underline-offset-4 hover:opacity-70 transition-opacity"
             >
               <Icons.email className="size-4" />
@@ -374,11 +368,11 @@ export default function Page() {
 
             <div className="mt-8">
               <h2 className="text-xl font-medium">Let's do a quick chat on X (Twitter)</h2>
-              
+
               <a
                 href={DATA.contact.social.X.url}
                 target="_blank"
-                rel="noopener noreferrer" 
+                rel="noopener noreferrer"
                 className="inline-block mt-4 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
               >
                 Talk on X

@@ -1,9 +1,14 @@
 "use client";
 
-import { motion } from "motion/react";
-import { useEffect, useId, useRef, useState } from "react";
+import { motion } from "framer-motion";
+import { useEffect, useId, useRef, useState, RefObject, useCallback } from "react";
 
 import { cn } from "@/lib/utils";
+
+interface Square {
+  id: string;
+  pos: [number, number]; // [x, y] coordinates
+}
 
 interface AnimatedGridPatternProps {
   width?: number;
@@ -32,37 +37,33 @@ export default function AnimatedGridPattern({
   ...props
 }: AnimatedGridPatternProps) {
   const id = useId();
-  const containerRef = useRef(null);
+  const containerRef: RefObject<HTMLDivElement> = useRef(null);
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
-  const [squares, setSquares] = useState(() => generateSquares(numSquares));
+  const [squares, setSquares] = useState<Square[]>([]);
 
-  function getPos() {
-    return [
-      Math.floor((Math.random() * dimensions.width) / width),
-      Math.floor((Math.random() * dimensions.height) / height),
-    ];
-  }
-
-  // Adjust the generateSquares function to return objects with an id, x, and y
-  function generateSquares(count: number) {
+  const generateSquares = (count: number): Square[] => {
     return Array.from({ length: count }, (_, i) => ({
-      id: i,
-      pos: getPos(),
+      id: `square-${i}`,
+      pos: [
+        Math.floor(Math.random() * 20), // x coordinate
+        Math.floor(Math.random() * 20), // y coordinate
+      ],
     }));
-  }
+  };
 
-  // Function to update a single square's position
-  const updateSquarePosition = (id: number) => {
-    setSquares((currentSquares) =>
-      currentSquares.map((sq) =>
-        sq.id === id
-          ? {
-              ...sq,
-              pos: getPos(),
-            }
-          : sq,
-      ),
-    );
+  const updateSquarePosition = (id: string) => {
+    setSquares(prev => prev.map(square => {
+      if (square.id === id) {
+        return {
+          ...square,
+          pos: [
+            Math.floor(Math.random() * 20),
+            Math.floor(Math.random() * 20),
+          ],
+        };
+      }
+      return square;
+    }));
   };
 
   // Update squares to animate in
@@ -74,75 +75,80 @@ export default function AnimatedGridPattern({
 
   // Resize observer to update container dimensions
   useEffect(() => {
-    const resizeObserver = new ResizeObserver((entries) => {
-      for (let entry of entries) {
+    const currentContainer = containerRef.current;
+    
+    const resizeObserver = new ResizeObserver(() => {
+      if (currentContainer) {
+        const rect = currentContainer.getBoundingClientRect();
         setDimensions({
-          width: entry.contentRect.width,
-          height: entry.contentRect.height,
+          width: rect.width,
+          height: rect.height,
         });
       }
     });
 
-    if (containerRef.current) {
-      resizeObserver.observe(containerRef.current);
+    if (currentContainer) {
+      resizeObserver.observe(currentContainer);
     }
 
     return () => {
-      if (containerRef.current) {
-        resizeObserver.unobserve(containerRef.current);
+      if (currentContainer) {
+        resizeObserver.unobserve(currentContainer);
       }
+      resizeObserver.disconnect();
     };
-  }, [containerRef]);
+  }, []); // Empty dependency array since we only want to set up the observer once
 
   return (
-    <svg
-      ref={containerRef}
-      aria-hidden="true"
-      className={cn(
-        "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
-        className,
-      )}
-      {...props}
-    >
-      <defs>
-        <pattern
-          id={id}
-          width={width}
-          height={height}
-          patternUnits="userSpaceOnUse"
-          x={x}
-          y={y}
-        >
-          <path
-            d={`M.5 ${height}V.5H${width}`}
-            fill="none"
-            strokeDasharray={strokeDasharray}
-          />
-        </pattern>
-      </defs>
-      <rect width="100%" height="100%" fill={`url(#${id})`} />
-      <svg x={x} y={y} className="overflow-visible">
-        {squares.map(({ pos: [x, y], id }, index) => (
-          <motion.rect
-            initial={{ opacity: 0 }}
-            animate={{ opacity: maxOpacity }}
-            transition={{
-              duration,
-              repeat: 1,
-              delay: index * 0.1,
-              repeatType: "reverse",
-            }}
-            onAnimationComplete={() => updateSquarePosition(id)}
-            key={`${x}-${y}-${index}`}
-            width={width - 1}
-            height={height - 1}
-            x={x * width + 1}
-            y={y * height + 1}
-            fill="currentColor"
-            strokeWidth="0"
-          />
-        ))}
+    <div ref={containerRef} className={className}>
+      <svg
+        aria-hidden="true"
+        className={cn(
+          "pointer-events-none absolute inset-0 h-full w-full fill-gray-400/30 stroke-gray-400/30",
+          className,
+        )}
+        {...props}
+      >
+        <defs>
+          <pattern
+            id={id}
+            width={width}
+            height={height}
+            patternUnits="userSpaceOnUse"
+            x={x}
+            y={y}
+          >
+            <path
+              d={`M.5 ${height}V.5H${width}`}
+              fill="none"
+              strokeDasharray={strokeDasharray}
+            />
+          </pattern>
+        </defs>
+        <rect width="100%" height="100%" fill={`url(#${id})`} />
+        <svg x={x} y={y} className="overflow-visible">
+          {squares.map(({ pos: [x, y], id }, index) => (
+            <motion.rect
+              initial={{ opacity: 0 }}
+              animate={{ opacity: maxOpacity }}
+              transition={{
+                duration,
+                repeat: 1,
+                delay: index * 0.1,
+                repeatType: "reverse",
+              }}
+              onAnimationComplete={() => updateSquarePosition(id)}
+              key={`${x}-${y}-${index}`}
+              width={width - 1}
+              height={height - 1}
+              x={x * width + 1}
+              y={y * height + 1}
+              fill="currentColor"
+              strokeWidth="0"
+            />
+          ))}
+        </svg>
       </svg>
-    </svg>
+    </div>
   );
 }

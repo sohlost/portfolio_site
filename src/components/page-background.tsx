@@ -16,7 +16,7 @@ export function PageBackground() {
   }
 
   if (isGadgetsPage) {
-    return <AnimatedGridPattern className="w-full h-full" />;
+    return <GridPattern className="w-full h-full" />;
   }
 
   // Show meteors on all other pages

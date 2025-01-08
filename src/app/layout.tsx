@@ -12,7 +12,7 @@ import { ScrollProgress } from "@/components/scroll-progress";
 import { VisitorCounter } from "@/components/visitor-counter";
 import { JsonLd } from "@/components/json-ld";
 // import { Analytics } from "@vercel/analytics/react"
-import { MeteorsBackground } from "@/components/meteors-background";
+import { PageBackground } from "@/components/page-background";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -73,40 +73,45 @@ export const metadata: Metadata = {
 
 export default function RootLayout({
   children,
-}: Readonly<{
+}: {
   children: React.ReactNode;
-}>) {
+}) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <head />
       <body
         className={cn(
-          "min-h-screen bg-background/50 font-sans antialiased max-w-2xl mx-auto py-12 sm:py-24 px-6 relative",
+          "relative min-h-screen font-sans antialiased",
           fontSans.variable
         )}
       >
-        <MeteorsBackground />
-        <Script
-          id="microsoft-clarity"
-          strategy="afterInteractive"
-        >
-          {`
-            (function(c,l,a,r,i,t,y){
-              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-            })(window, document, "clarity", "script", "p73rco1nfp");
-          `}
-        </Script>
-        <JsonLd />
-        <ScrollProgress />
-        <ThemeProvider attribute="class" defaultTheme="light">
-          <TooltipProvider delayDuration={0}>
-            {children}
-            <Navbar />
-            {/* <Analytics/> */}
-          </TooltipProvider>
-        </ThemeProvider>
+        {/* Background container */}
+        <div className="fixed inset-0 z-[-1]">
+          <PageBackground />
+        </div>
+
+        {/* Main content */}
+        <div className="relative z-10 max-w-2xl mx-auto py-12 sm:py-24 px-6">
+          <Script
+            id="microsoft-clarity"
+            strategy="afterInteractive"
+          >
+            {`
+              (function(c,l,a,r,i,t,y){
+                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+              })(window, document, "clarity", "script", "p73rco1nfp");
+            `}
+          </Script>
+          <JsonLd />
+          <ScrollProgress />
+          <ThemeProvider attribute="class" defaultTheme="light">
+            <TooltipProvider delayDuration={0}>
+              {children}
+              <Navbar />
+            </TooltipProvider>
+          </ThemeProvider>
+        </div>
       </body>
     </html>
   );

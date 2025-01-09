@@ -18,6 +18,7 @@ import { Metadata } from 'next';
 import { Icons } from "@/components/icons";
 import ShinyButton from "@/components/ui/shiny-button";
 import { RainbowButton } from "@/components/ui/rainbow-button";
+import { SocialIconLink } from "@/components/social-icon-link";
 
 const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
   ssr: true,
@@ -121,17 +122,13 @@ export default function Page() {
             <h2 className="text-xl font-bold">Let's collaborate 🤝🏻</h2>
             <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
               {Object.entries(DATA.contact.social).map(([name, social], idx) => (
-                <BlurFade key={name} delay={BLUR_FADE_DELAY * 5 + idx * 0.05}>
-                  <Link
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={name}
-                    className="flex items-center justify-center p-3 rounded-xl bg-card hover:bg-accent/50 transition-all duration-200 group"
-                  >
-                    <social.icon className="size-6 text-foreground" />
-                  </Link>
-                </BlurFade>
+                <SocialIconLink
+                  key={name}
+                  name={name}
+                  url={social.url}
+                  icon={<social.icon />}
+                  delay={BLUR_FADE_DELAY * 5 + idx * 0.05}
+                />
               ))}
             </div>
           </div>

@@ -9,7 +9,7 @@ import Script from "next/script";
 import "./globals.css";
 import { ScrollProgress } from "@/components/scroll-progress";
 // import { CustomCursor } from "@/components/custom-cursor";
-import { VisitorCounter } from "@/components/visitor-counter";
+import VisitorCounter from "@/components/visitor-counter";
 import { JsonLd } from "@/components/json-ld";
 // import { Analytics } from "@vercel/analytics/react"
 import { PageBackground } from "@/components/page-background";

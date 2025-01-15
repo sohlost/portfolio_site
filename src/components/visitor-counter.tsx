@@ -1,30 +1,55 @@
+// components/visitor-counter.tsx
 'use client';
 
 import { useEffect, useState } from 'react';
+import { motion } from 'framer-motion';
 
-export function VisitorCounter() {
-  const [count, setCount] = useState<number>(0);
+export default function VisitorCounter() {
+  const [count, setCount] = useState<number | null>(null);
 
   useEffect(() => {
-    const incrementVisitor = async () => {
-      try {
-        const response = await fetch('/api/visitors', {
-          method: 'GET',
-        });
-        const data = await response.json();
-        setCount(data.count);
-      } catch (error) {
-        console.error('Failed to increment visitor count:', error);
-      }
-    };
+    // Debug log
+    console.log('Current stored count:', localStorage.getItem('visitorCount'));
 
-    incrementVisitor();
+    try {
+      const storedCount = localStorage.getItem('visitorCount');
+      const currentCount = storedCount ? parseInt(storedCount) : 0;
+      
+      // Increment and store
+      const newCount = currentCount + 1;
+      localStorage.setItem('visitorCount', newCount.toString());
+      
+      // Debug log
+      console.log('New count:', newCount);
+      
+      setCount(newCount);
+    } catch (error) {
+      console.error('Error updating visitor count:', error);
+      // Fallback to showing 0 if localStorage fails
+      setCount(0);
+    }
   }, []);
 
+  // Don't render anything until client-side count is set
+  if (count === null) return null;
+
   return (
-    <div className="flex items-center gap-2 text-sm text-neutral-600 dark:text-neutral-400">
-      <span>👥</span>
-      <span>{count.toLocaleString()} visitors</span>
-    </div>
+    <motion.div 
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      className="inline-flex items-center gap-2"
+    >
+      <motion.span
+        key={count}
+        initial={{ opacity: 0, scale: 0.8 }}
+        animate={{ opacity: 1, scale: 1 }}
+        className="text-foreground/80"
+        suppressHydrationWarning
+      >
+        <span className="font-medium" suppressHydrationWarning>
+          {count.toLocaleString()}
+        </span>
+      </motion.span>
+    </motion.div>
   );
 }

@@ -1,50 +1,50 @@
 import { MetadataRoute } from "next";
 import { getBlogPosts } from "@/data/blog";
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
   const baseUrl = "https://prasen.dev";
 
-  // Get all blog posts
-  const posts = await getBlogPosts();
-  const blogUrls = posts.map((post) => ({
-    url: `${baseUrl}/blog/${post.slug}`,
-    lastModified: new Date(post.metadata.publishedAt),
-    changeFrequency: 'weekly' as const,
-    priority: 0.8,
-  }));
+  const blogUrls = await getBlogPosts().then(posts =>
+    posts.map(post => ({
+      url: `${baseUrl}/blog/${post.slug}`,
+      lastModified: new Date(post.metadata.publishedAt),
+      changeFrequency: 'monthly' as const,
+      priority: 0.6
+    }))
+  );
 
-  const routes = [
+  const routes: MetadataRoute.Sitemap = [
     {
-      route: '/',
-      changeFreq: 'weekly' as const,
+      url: baseUrl,
+      lastModified: new Date(),
+      changeFrequency: 'daily',
       priority: 1.0,
     },
     {
-      route: '/blog',
-      changeFreq: 'weekly' as const,
+      url: `${baseUrl}/blog`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
-      route: '/videos',
-      changeFreq: 'weekly' as const,
+      url: `${baseUrl}/videos`,
+      lastModified: new Date(),
+      changeFrequency: 'weekly' as const,
       priority: 0.8,
     },
     {
-      route: '/gadgets',
-      changeFreq: 'monthly' as const,
+      url: `${baseUrl}/gadgets`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
     {
-      route: '/projects',
-      changeFreq: 'monthly' as const,
+      url: `${baseUrl}/projects`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly' as const,
       priority: 0.7,
     },
-  ].map(({ route, changeFreq, priority }) => ({
-    url: `${baseUrl}${route}`,
-    lastModified: new Date(),
-    changeFrequency: changeFreq,
-    priority: priority,
-  }));
+  ];
 
   return [...routes, ...blogUrls];
 }

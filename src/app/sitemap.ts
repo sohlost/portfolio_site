@@ -1,18 +1,8 @@
-import { MetadataRoute } from "next";
-import { getBlogPosts } from "@/data/blog";
+import { MetadataRoute } from 'next';
 
-export async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = "https://prasen.dev";
+const baseUrl = 'https://prasen.dev';
 
-  const blogUrls = await getBlogPosts().then(posts =>
-    posts.map(post => ({
-      url: `${baseUrl}/blog/${post.slug}`,
-      lastModified: new Date(post.metadata.publishedAt),
-      changeFrequency: 'monthly' as const,
-      priority: 0.6
-    }))
-  );
-
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const routes: MetadataRoute.Sitemap = [
     {
       url: baseUrl,
@@ -23,28 +13,28 @@ export async function generateSitemap(): Promise<MetadataRoute.Sitemap> {
     {
       url: `${baseUrl}/blog`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/videos`,
       lastModified: new Date(),
-      changeFrequency: 'weekly' as const,
+      changeFrequency: 'weekly',
       priority: 0.8,
     },
     {
       url: `${baseUrl}/gadgets`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
     {
       url: `${baseUrl}/projects`,
       lastModified: new Date(),
-      changeFrequency: 'monthly' as const,
+      changeFrequency: 'monthly',
       priority: 0.7,
     },
   ];
 
-  return [...routes, ...blogUrls];
+  return routes;
 }

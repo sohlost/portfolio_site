@@ -19,7 +19,6 @@ import { Icons } from "@/components/icons";
 import ShinyButton from "@/components/ui/shiny-button";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { SocialIconLink } from "@/components/social-icon-link";
-import VisitorCounter from "@/components/visitor-counter";
 
 const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
   ssr: true,
@@ -350,18 +349,12 @@ export default function Page() {
           </div>
         </BlurFade>
       </section>
-      <footer className="mt-20 border-t py-8">
+<footer className="mt-20 border-t py-8">
   <BlurFade delay={BLUR_FADE_DELAY * 15}>
     <div className="container mx-auto px-4">
       <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <div className="flex flex-col items-center md:items-start gap-2">
-          <div className="text-sm text-muted-foreground">
-            Copyright &copy;{new Date().getFullYear()} {DATA.name}. All rights reserved.
-          </div>
-          <div className="flex items-center gap-2 text-sm text-muted-foreground">
-            <span>Visitor count:</span>
-            <VisitorCounter />
-          </div>
+        <div className="text-sm text-muted-foreground">
+          Copyright &copy;{new Date().getFullYear()} {DATA.name}. All rights reserved.
         </div>
         <div className="flex space-x-4">
           <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-foreground">

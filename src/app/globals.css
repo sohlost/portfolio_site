@@ -170,6 +170,21 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
   }
 }
 
+@keyframes border-pulse {
+  0% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.1);
+    opacity: 0.5;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
 .profile-pic {
   border: 2px solid transparent;
   animation: border-pulse 2s infinite;
@@ -178,4 +193,43 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
 
 .profile-pic:hover {
   transform: scale(1.05);
+}
+
+.profile-wrapper {
+  position: relative;
+  border-radius: 50%;
+  padding: 2px; /* reduced from 3px */
+}
+
+.profile-wrapper::before {
+  content: '';
+  position: absolute;
+  inset: -2px; /* reduced from -3px */
+  border-radius: 50%;
+  padding: 2px; /* reduced from 3px */
+  background: linear-gradient(
+    45deg,
+    hsl(var(--muted-foreground)),
+    hsl(var(--foreground)) 45%,
+    hsl(var(--muted-foreground))
+  );
+  -webkit-mask: 
+    linear-gradient(#fff 0 0) content-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  animation: rotate 8s linear infinite; /* slowed down from 4s */
+}
+
+.profile-wrapper:hover::before {
+  animation: rotate 4s linear infinite; /* slowed down from 2s */
+}
+
+@keyframes rotate {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }

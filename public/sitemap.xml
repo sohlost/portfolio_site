@@ -19,6 +19,12 @@
     <priority>0.8</priority>
   </url>
   <url>
+    <loc>https://prasen.dev/projects</loc>
+    <lastmod>2024-12-08</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+  <url>
     <loc>https://prasen.dev/gadgets</loc>
     <lastmod>2024-12-08</lastmod>
     <changefreq>monthly</changefreq>

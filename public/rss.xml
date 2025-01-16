@@ -2,23 +2,23 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 <channel>
   <title>Prasenjit Nayak's Blog</title>
-  <link>${DATA.url}</link>
+  <link>https://prasen.dev</link>
   <description>Full Stack Developer sharing insights about web development, technology, and programming</description>
   <language>en</language>
-  <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-  <atom:link href="${DATA.url}/rss.xml" rel="self" type="application/rss+xml"/>
+  <lastBuildDate>Thu, 07 Dec 2024 00:00:00 GMT</lastBuildDate>
+  <atom:link href="https://prasen.dev/rss.xml" rel="self" type="application/rss+xml"/>
   
   <item>
     <title>Is Computer Science Saturated?</title>
-    <link>${DATA.url}/blog/hello-world</link>
-    <guid>${DATA.url}/blog/hello-world</guid>
+    <link>https://prasen.dev/blog/hello-world</link>
+    <guid>https://prasen.dev/blog/hello-world</guid>
     <pubDate>Tue, 07 Dec 2024 00:00:00 GMT</pubDate>
     <description>Let's know about the reality of Computer science degrees</description>
   </item>
   <item>
     <title>Is Ubuntu completely bloated?</title>
-    <link>${DATA.url}/blog/ubuntu-is-bloated</link>
-    <guid>${DATA.url}/blog/ubuntu-is-bloated</guid>
+    <link>https://prasen.dev/blog/ubuntu-is-bloated</link>
+    <guid>https://prasen.dev/blog/ubuntu-is-bloated</guid>
     <pubDate>Tue, 16 Dec 2024 00:00:00 GMT</pubDate>
     <description>Is most popular linux distro is bloated? Let's know about it.</description>
   </item>

@@ -338,6 +338,37 @@ export const DATA = {
       video:
         "https://video.gumlet.io/6745e593080b60408ca085f7/6745ef75b79a267f99668bda/download.mp4",
     },
+    {
+      title: "3D Carousel Gallery",
+      href: "https://3dcarousell.vercel.app/",
+      dates: "December 2024 - January 2025",
+      active: true,
+      description:
+        "A beautiful and interactive 3D carousel gallery built with Next.js, featuring image and video support with an integrated music player.",
+      technologies: [
+        "Next.js",
+        "CSS 3D Transform",
+        "SoundCloud Widget API",
+        "Modern-Javascript",
+        "Vercel",
+        "Git",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://3dcarousell.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/StarKnightt/3D-Carousel",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video:
+        "https://video.gumlet.io/6745e593080b60408ca085f7/67912b93d696a7af3b2e38ef/download.mp4",
+    }
   ],
   hackathons: [
     {

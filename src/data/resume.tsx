@@ -12,7 +12,7 @@ export const DATA = {
   description:
     "A Full Stack Developer from India, Code is an art 🎨 be the artist!",
   summary:
-    "A Computer Science graduate from [Trident Academy Of Technology](https://tat.ac.in/), specialize in modern web development and am actively working on [open-source projects](https://github.com/StarKnightt). I'm passionate about creating impactful solutions and sharing knowledge through my technical blog and YouTube channel as well as on X(Twitter) too.",
+    "A Computer Science graduate from [Trident Academy Of Technology](https://tat.ac.in/), specialize in modern web development and am actively working on [open-source projects](https://github.com/StarKnightt). I'm passionate about creating impactful solutions and sharing knowledge through my [technical blog](https://prasen.dev/blog) and [YouTube](https://youtube.com/@Star_Knight12) channel as well as on [X(Twitter)](https://x.com/Star_Knight12/highlights) too | Free-lancer.",
   avatarUrl: "/hi.webp",
   skills: [
     "React",

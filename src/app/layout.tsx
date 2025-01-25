@@ -11,8 +11,8 @@ import { ScrollProgress } from "@/components/scroll-progress";
 // import { CustomCursor } from "@/components/custom-cursor";
 import VisitorCounter from "@/components/visitor-counter";
 import { JsonLd } from "@/components/json-ld";
-// import { Analytics } from "@vercel/analytics/react"
 import { PageBackground } from "@/components/page-background";
+import { Analytics } from "@vercel/analytics/react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -150,6 +150,7 @@ export default function RootLayout({
           <ThemeProvider attribute="class" defaultTheme="light">
             <TooltipProvider delayDuration={0}>
               {children}
+              <Analytics />
               <Navbar />
             </TooltipProvider>
           </ThemeProvider>

@@ -32,35 +32,35 @@ export const DATA = {
     {
       title: "Track Your Coding time for free",
       description: "Learn how to track your code time with complete analytics and insights.",
-      thumbnail: "/video1.jpg",
+      thumbnail: "/video1.avif",
       url: "https://youtu.be/tBatfQjWxCg?si=sy2vZbCHoIYNME-3",
       date: "2024-05-15"
     },
     {
       title: "Fix multi-cursor in VS Code",
       description: "Simple trick to fix multi-cursor in VS Code.",
-      thumbnail: "/video2.jpg",
+      thumbnail: "/video2.avif",
       url: "https://youtu.be/E9h7M6ZK_tA?si=ykzV7ARU4VMnbBRo",
       date: "2024-07-01"
     },
     {
      title: "Twitter(X)'s monetization (Hindi)",
      description: "Is the policy broken? Let's find out.",
-     thumbnail: "/video3.jpg",
+     thumbnail: "/video3.avif",
      url: "https://youtu.be/Z3h1jt6jKLY?si=blL4l4FNco9WW9FT",
      date: "2024-11-04"
     },
     {
       title:"How to fix any kind of ban in twitter (Hindi)",
       description: "Learn how to fix any kind of ban in twitter.",
-      thumbnail: "/video4.png",
+      thumbnail: "/video4.avif",
       url:"https://youtu.be/P7JRFrcXlQU",
       date: "2024-12-24"
     },
     {
       title:"Microsoft's new shocking move (Hindi)",
       description: "GitHub Copilot is now free for everyone, let's see what's the catch.",
-      thumbnail: "/video5.png",
+      thumbnail: "/video5.avif",
       url:"https://www.youtube.com/watch?v=uIJOUe8T3_I",
       date: "2024-12-19"
     },
@@ -211,7 +211,7 @@ export const DATA = {
       school: "Trident Academy Of Technology",
       href: "https://tat.ac.in/",
       degree: "B.Tech in Computer Science and Information Technology",
-      logoUrl: "/buildspace.jpg",
+      logoUrl: "/buildspace.webp",
       start: "2020",
       end: "2024",
     },
@@ -219,7 +219,7 @@ export const DATA = {
       school: "Netaji Subhas Memorial City College",
       href: "https://www.nsmcity.ac.in/index.asp",
       degree: "Higher Secondary",
-      logoUrl: "/waterloo.png",
+      logoUrl: "/waterloo.webp",
       start: "2019",
       end: "2021",
     },
@@ -386,7 +386,7 @@ export const DATA = {
       description:
         "Developed a learing portal with some free education content with the best paid contents too, the project was called as 'EducationX'.",
       image:
-        "https://i.ibb.co/QDssrSq/smart-india-hackathon.jpg",
+        "/smart-india-hackathon.webp",
       mlh: "https://github.com/Synchrotek/E-LearningX",
       links: [],
     },
@@ -397,7 +397,7 @@ export const DATA = {
       description:
         "Developed A collaborative coding web platform that enables Multiuser collboration on a coding project in real-time with features of group chat, to-do lists.",
       image:
-        "https://i.ibb.co/fM326Bv/logo.png",
+        "/logo.webp",
       mlh: "https://nexuslink01v.netlify.app/",
       links: [],
     },

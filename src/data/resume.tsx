@@ -1,4 +1,5 @@
 import { Icons } from "@/components/icons";
+import { Description } from "@radix-ui/react-dialog";
 import { url } from "inspector";
 import { HomeIcon, NotebookIcon, ThumbsDown, VideoIcon, FolderIcon } from "lucide-react";
 import { title } from "process";
@@ -63,6 +64,13 @@ export const DATA = {
       url:"https://www.youtube.com/watch?v=uIJOUe8T3_I",
       date: "2024-12-19"
     },
+    {
+      title:"How to run DeepSeek R1 model locally (Hindi)",
+      description:"Learn how to run DeepSeek R1 model locally, in easy steps",
+      thumbnail: "/video6.avif",
+      url:"https://youtu.be/BgB2pW6QgVg",
+      date: "2025-01-29"
+    }
     
   ],
   navbar: [

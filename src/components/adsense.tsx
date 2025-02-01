@@ -7,17 +7,16 @@ export function AdSense() {
     <>
       <Script
         async
-        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"
+        src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-9812963383908086"
         crossOrigin="anonymous"
         strategy="afterInteractive"
-        data-ad-client="pub-9812963383908086"
       />
       {/* Ad unit container */}
       <div className="my-8">
         <ins
           className="adsbygoogle"
           style={{ display: 'block' }}
-          data-ad-client="pub-9812963383908086"
+          data-ad-client="ca-pub-9812963383908086"
           data-ad-slot="4127374355"
           data-ad-format="auto"
           data-full-width-responsive="true"

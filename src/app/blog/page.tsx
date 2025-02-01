@@ -2,7 +2,6 @@ import BlurFade from "@/components/magicui/blur-fade";
 import { getBlogPosts } from "@/data/blog";
 import Link from "next/link";
 import { DATA } from "@/data/resume";
-import { AdSense } from '@/components/adsense';
 
 export const metadata = {
   title: "Blog",
@@ -47,7 +46,6 @@ export default async function BlogPage() {
             </Link>
           </BlurFade>
         ))}
-      <AdSense />
     </section>
   );
 }

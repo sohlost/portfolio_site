@@ -30,9 +30,6 @@ export const metadata: Metadata = {
   authors: [{ name: "Prasenjit Nayak" }],
   creator: "Prasenjit Nayak",
   publisher: "Prasenjit Nayak",
-  verification: {
-    google: "pub-9812963383908086",
-  },
   alternates: {
     canonical: DATA.url,
   },

@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   creator: "Prasenjit Nayak",
   publisher: "Prasenjit Nayak",
   verification: {
-    google: "-hh6IhDqq2ehQA92ykUXPEhlQWxTHFvptR9Fv_V0gDo",
+    google: "pub-9812963383908086",
   },
   alternates: {
     canonical: DATA.url,

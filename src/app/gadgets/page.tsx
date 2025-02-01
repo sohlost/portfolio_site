@@ -21,9 +21,7 @@ export default function GadgetsPage() {
       const matchesSearch = searchQuery === '' || 
         product.title.toLowerCase().includes(searchQuery.toLowerCase()) ||
         product.description.toLowerCase().includes(searchQuery.toLowerCase());
-      
       const matchesCategory = selectedCategory === '' || product.category === selectedCategory;
-      
       return matchesSearch && matchesCategory;
     });
   }, [searchQuery, selectedCategory]);

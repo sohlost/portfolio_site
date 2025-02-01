@@ -5,6 +5,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { BlogInteractions } from "@/components/blog-interactions";
+import { AdSense } from "@/components/adsense";
 
 export async function generateStaticParams() {
   const posts = await getBlogPosts();
@@ -103,6 +104,7 @@ export default async function Blog({
         className="prose dark:prose-invert"
         dangerouslySetInnerHTML={{ __html: post.source }}
       />
+      <AdSense />
       <BlogInteractions slug={params.slug} />
     </section>
   );

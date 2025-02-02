@@ -44,7 +44,7 @@ export async function GET() {
               <content:encoded><![CDATA[${post.source}]]></content:encoded>
               <dc:creator>${DATA.name}</dc:creator>
               ${post.metadata.tags ? 
-                post.metadata.tags.map(tag => `<category>${tag}</category>`).join('') 
+                post.metadata.tags.map((tag: string) => `<category>${tag}</category>`).join('') 
                 : ''}
               ${post.metadata.image ? 
                 `<media:content 

@@ -1,6 +1,11 @@
 import { getBlogPosts } from "@/data/blog";
 import { DATA } from "@/data/resume";
 
+function truncateContent(content: string, maxLength: number = 280): string {
+  if (content.length <= maxLength) return content;
+  return content.slice(0, maxLength) + '... [Read More]';
+}
+
 export async function GET() {
   const posts = await getBlogPosts();
   const sortedPosts = posts.sort((a, b) => {
@@ -41,7 +46,7 @@ export async function GET() {
               <guid isPermaLink="true">${DATA.url}/blog/${post.slug}</guid>
               <pubDate>${new Date(post.metadata.publishedAt).toUTCString()}</pubDate>
               <description><![CDATA[${post.metadata.summary}]]></description>
-              <content:encoded><![CDATA[${post.source}]]></content:encoded>
+              <content:encoded><![CDATA[${truncateContent(post.metadata.summary)}]]></content:encoded>
               <dc:creator>${DATA.name}</dc:creator>
               ${post.metadata.tags ? 
                 post.metadata.tags.map((tag: string) => `<category>${tag}</category>`).join('') 

@@ -52,7 +52,7 @@ export function VideoCard({ video }: VideoCardProps) {
       <VideoPlayerModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        video={video}
+        videoUrl={video.url}
       />
     </>
   );

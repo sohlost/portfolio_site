@@ -10,10 +10,7 @@ import {
 interface VideoPlayerModalProps {
   isOpen: boolean;
   onClose: () => void;
-  video: {
-    title: string;
-    url: string;
-  };
+  videoUrl: string;
 }
 
 function getYouTubeEmbedUrl(url: string) {
@@ -23,19 +20,19 @@ function getYouTubeEmbedUrl(url: string) {
   return videoId ? `https://www.youtube.com/embed/${videoId}` : '';
 }
 
-export function VideoPlayerModal({ isOpen, onClose, video }: VideoPlayerModalProps) {
-  const embedUrl = getYouTubeEmbedUrl(video.url);
+export function VideoPlayerModal({ isOpen, onClose, videoUrl }: VideoPlayerModalProps) {
+  const embedUrl = getYouTubeEmbedUrl(videoUrl);
 
   return (
     <Dialog open={isOpen} onOpenChange={onClose}>
       <DialogContent className="max-w-[90vw] md:max-w-[80vw] lg:max-w-[1200px] p-2 md:p-4 h-auto">
         <DialogHeader className="mb-2">
-          <DialogTitle className="text-base md:text-lg line-clamp-1">{video.title}</DialogTitle>
+          <DialogTitle className="text-base md:text-lg line-clamp-1">{videoUrl}</DialogTitle>
         </DialogHeader>
         <div className="relative w-full aspect-video">
           <iframe
             src={embedUrl}
-            title={video.title}
+            title={videoUrl}
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
             allowFullScreen
             className="w-full h-full rounded-lg"

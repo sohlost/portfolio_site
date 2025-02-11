@@ -27,6 +27,8 @@
     "gray-matter": "^4.0.3",
     "i18next": "^24.2.1",
     "lucide-react": "^0.395.0",
+    "mdx-mermaid": "^2.0.3",
+    "mermaid": "^11.4.1",
     "mongodb": "^6.11.0",
     "mongoose": "^8.8.4",
     "motion": "^11.16.0",

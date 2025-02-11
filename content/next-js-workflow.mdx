@@ -227,23 +227,6 @@ Next.js includes several built-in performance optimizations:
 3. **Prefetching**: Links are automatically prefetched in the background
 4. **Image Optimization**: Automatic image optimization and modern formats
 
-## When to Use Different Rendering Methods
-
-Here's a simple guide for choosing the right rendering method:
-
-```mermaid
-flowchart TD
-    A[New Page] --> B{Does data change often?}
-    B -->|No| C[Use Static Generation]
-    B -->|Yes| D{Need SEO?}
-    D -->|Yes| E[Use SSR]
-    D -->|No| F[Use Client-side]
-    C --> G[getStaticProps]
-    E --> H[getServerSideProps]
-    F --> I[useEffect + fetch]
-
-```
-
 ## Conclusion
 
 Next.js makes building modern web applications easier by providing powerful features out of the box. Whether you're building a blog, e-commerce site, or complex web application, Next.js has the tools you need to create fast, SEO-friendly, and user-friendly experiences.

@@ -1,10 +1,14 @@
 User-agent: *
 Allow: /
 
-# Allow all crawlers
+# Sitemaps
 Sitemap: https://prasen.dev/sitemap.xml
 
-# Priority pages
-Allow: /blog
-Allow: /videos
-Allow: /gadgets
+# Assets
+Allow: /favicons/
+Allow: /images/
+Allow: /static/
+
+# Disallow dynamic URLs
+Disallow: /api/
+Disallow: /*?*

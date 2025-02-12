@@ -328,11 +328,11 @@ export default function Page() {
             <h2 className="text-xl font-medium">Feel free to reach out to me via email:</h2>
 
             <a
-              href="mailto:prasenjitt4e@gmail.com"
+              href="mailto:prasen.nayak@hotmail.com"
               className="flex items-center gap-2 underline underline-offset-4 hover:opacity-70 transition-opacity"
             >
               <Icons.email className="size-4" />
-              prasenjitt4e@gmail.com
+              prasen.nayak@hotmail.com
             </a>
 
             <div className="mt-8">

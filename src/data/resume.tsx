@@ -125,7 +125,7 @@ export const DATA = {
       },
       email: {
         name: "Send Email",
-        url: "mailto:prasenjitt4e@gmail.com",
+        url: "mailto:prasen.nayak@hotmail.com",
         icon: Icons.email,
         navbar: false,
       },
@@ -259,34 +259,35 @@ export const DATA = {
         "https://video.gumlet.io/6745e593080b60408ca085f7/6745e5e5080b60408ca08984/download.mp4",
     },
     {
-      title: "Coffee-Website",
-      href: "https://coffee-websitee.vercel.app/",
-      dates: "September 2024 - October 2024",
+      title: "Wallpaper App",
+      href: "https://www.wallpaperz.in/",
+      dates: "January 2025 - February 2025",
       active: true,
       description:
-        "A web app, with the futurisitc yet nostalgic design of a coffee shop, with a menu and blend of retro vibes.",
+        "A modern wallpaper discovery platform where you can find stunning wallpapers for your desktop.It's a platform where you can find wallpapers for your desktop.",
       technologies: [
-        "React.js",
+        "Next.js",
         "Git",
         "TailwindCSS",
         "Framer-motion",
-        "React-icons",
-        "React-router-dom",
+        "TypeScript",
+        "Imagekit",
+        "shadcnUI",
       ],
       links: [
         {
           type: "Website",
-          href: "https://coffee-websitee.vercel.app/",
+          href: "https://www.wallpaperz.in/",
           icon: <Icons.globe className="size-3" />,
         },
-        {
-          type: "Source",
-          href: "https://github.com/StarKnightt/Coffee-Website",
-          icon: <Icons.github className="size-3" />,
-        },
+        // {
+        //   type: "Source",
+        //   href: "https://github.com/StarKnightt/Coffee-Website",
+        //   icon: <Icons.github className="size-3" />,
+        // },
       ],
       image: "",
-      video: "https://video.gumlet.io/6745e593080b60408ca085f7/6745ea2d080b60408ca0bc08/download.mp4",
+      video: "https://video.gumlet.io/6745e593080b60408ca085f7/67af7ffc39791bf9fcf44458/download.mp4",
     },
     {
       title: "GitHub Buddy Finder",
@@ -345,6 +346,36 @@ export const DATA = {
       image: "",
       video:
         "https://video.gumlet.io/6745e593080b60408ca085f7/6745ef75b79a267f99668bda/download.mp4",
+    },
+    {
+      title: "Coffee-Website",
+      href: "https://coffee-websitee.vercel.app/",
+      dates: "September 2024 - October 2024",
+      active: true,
+      description:
+        "A web app, with the futurisitc yet nostalgic design of a coffee shop, with a menu and blend of retro vibes.",
+      technologies: [
+        "React.js",
+        "Git",
+        "TailwindCSS",
+        "Framer-motion",
+        "React-icons",
+        "React-router-dom",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://coffee-websitee.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/StarKnightt/Coffee-Website",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "https://video.gumlet.io/6745e593080b60408ca085f7/6745ea2d080b60408ca0bc08/download.mp4",
     },
     {
       title: "3D Carousel Gallery",

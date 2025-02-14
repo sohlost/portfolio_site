@@ -13,6 +13,7 @@ import VisitorCounter from "@/components/visitor-counter";
 import { JsonLd } from "@/components/json-ld";
 import { PageBackground } from "@/components/page-background";
 import { Analytics } from "@vercel/analytics/react";
+import { GoogleAnalytics } from '@next/third-parties/google'
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -130,6 +131,7 @@ export default function RootLayout({
 
         {/* Main content */}
         <div className="relative z-10 max-w-2xl mx-auto py-12 sm:py-24 px-6">
+          <GoogleAnalytics gaId="G-XVF0SFD4GW" />
           <Script
             id="microsoft-clarity"
             strategy="afterInteractive"

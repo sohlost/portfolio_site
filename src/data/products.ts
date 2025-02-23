@@ -15,7 +15,7 @@ export const products: Product[] = [
     title: 'Logitech G402 Hyperion USB Wired Gaming mouse',
     description: '4000 DPI, Lightweight, software support, 8 programmable buttons.',
     imageUrl: '/images/products/logitech.webp',
-    amazonLink: 'https://amzn.to/3CYjyky',
+    amazonLink: 'https://amzn.to/4beEAZe',
     price: '₹2395.00',
     category: 'Computer and accessories',
     featured: false
@@ -25,8 +25,8 @@ export const products: Product[] = [
     title: '5-in-1 Multi-Function Laptop Gadget',
     description: 'Do 5 tasks at once with this multi-function gadget.',
     imageUrl: '/images/products/gadget.webp',
-    amazonLink: 'https://amzn.to/3D0VLR7',
-    price: '₹197.00',
+    amazonLink: 'https://amzn.to/4iakEZP',
+    price: '₹99.00',
     category: 'Gadgets',
     featured: true
   },
@@ -35,7 +35,7 @@ export const products: Product[] = [
     title: 'Crucial RAM 8GB DDR4 3200MHz CL22 (or 2933MHz or 2666MHz) ',
     description: 'Improve your system’s responsiveness run apps faster and multitask with ease.',
     imageUrl: '/images/products/Ram.webp',
-    amazonLink: 'https://amzn.to/4gb4q1A',
+    amazonLink: 'https://amzn.to/3F0ZMFW',
     price: '₹1349.00',
     category: 'Computer and accessories',
   },
@@ -45,7 +45,7 @@ export const products: Product[] = [
     title: 'Dyazo Laptop Stand',
     description: 'I have been using this product for 4 years now and it is still working perfectly.',
     imageUrl: '/images/products/stand.webp',  // Add image to this path
-    amazonLink: 'https://amzn.to/4fVz0wr',  // Your affiliate link
+    amazonLink: 'https://amzn.to/3QsYt5n',  // Your affiliate link
     price: '₹399.00',
     category: 'Computer and accessories',  // Use existing category or create new
     featured: false  // Optional, default is false
@@ -56,8 +56,8 @@ export const products: Product[] = [
     title: 'Transparent wireless mouse',
     description: 'I personally love this product for its design and functionality.',
     imageUrl: '/images/products/transparent-mouse.webp',  // Add image to this path
-    amazonLink: 'https://amzn.to/49ytXzE',  // Your affiliate link
-    price: '₹679.00',
+    amazonLink: 'https://amzn.to/4buFJMB',  // Your affiliate link
+    price: '₹599.00',
     category: 'Computer and accessories',  // Use existing category or create new
     featured: true  // Optional, default is false
   },

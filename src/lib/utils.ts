@@ -41,3 +41,7 @@ export function getYouTubeVideoId(url: string) {
   const match = url.match(regExp);
   return match && match[1].length === 11 ? match[1] : null;
 }
+
+export function formatPrice(price: number) {
+  return price.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ',');
+}

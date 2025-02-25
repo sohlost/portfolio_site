@@ -324,27 +324,27 @@ export default function Page() {
       <section id="contact">
         <BlurFade delay={BLUR_FADE_DELAY * 16}>
           <div className="space-y-4">
-            <h2 className="text-xl font-medium">Contact:</h2>
-            <h2 className="text-xl font-medium">Feel free to reach out to me via email:</h2>
+            <h2 className="text-xl font-bold">Contact</h2>
+            
+            <div className="mt-4">
+              <a
+                href="mailto:prasen.nayak@hotmail.com"
+                className="flex items-center gap-2 underline underline-offset-4 hover:opacity-70 transition-opacity"
+              >
+                <Icons.email className="size-4" />
+                prasen.nayak@hotmail.com
+              </a>
+            </div>
 
-            <a
-              href="mailto:prasen.nayak@hotmail.com"
-              className="flex items-center gap-2 underline underline-offset-4 hover:opacity-70 transition-opacity"
-            >
-              <Icons.email className="size-4" />
-              prasen.nayak@hotmail.com
-            </a>
-
-            <div className="mt-8">
-              <h2 className="text-xl font-medium">Let's do a quick chat on X (Twitter)</h2>
-
+            <div className="mt-6">
               <a
                 href={DATA.contact.social.X.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block mt-4 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
               >
-                Talk on X
+                <DATA.contact.social.X.icon className="size-4" />
+                Connect on X
               </a>
             </div>
           </div>

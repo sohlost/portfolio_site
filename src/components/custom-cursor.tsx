@@ -4,136 +4,57 @@ import { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 
 export function CustomCursor() {
-  const [mounted, setMounted] = useState(false);
   const [position, setPosition] = useState({ x: 0, y: 0 });
-  const [isPointer, setIsPointer] = useState(false);
-  const [isMobile, setIsMobile] = useState(false);
-
+  const [clicked, setClicked] = useState(false);
+  const [linkHovered, setLinkHovered] = useState(false);
+  
   useEffect(() => {
-    setMounted(true);
-    // Check if device is mobile/tablet
-    const checkDevice = () => {
-      setIsMobile(
-        /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(
-          navigator.userAgent
-        ) || window.matchMedia("(max-width: 768px)").matches
-      );
-    };
-
-    checkDevice();
-    window.addEventListener("resize", checkDevice);
-
-    const updateMousePosition = (e: MouseEvent) => {
+    const handleMouseMove = (e: MouseEvent) => {
       setPosition({ x: e.clientX, y: e.clientY });
-      
-      const target = e.target as HTMLElement;
-      setIsPointer(
-        window.getComputedStyle(target).cursor === "pointer" ||
-        target.tagName === "A" ||
-        target.tagName === "BUTTON" ||
-        target.onclick !== null ||
-        target.getAttribute("role") === "button"
-      );
     };
-
-    if (!isMobile) {
-      window.addEventListener("mousemove", updateMousePosition);
-    }
-
+    
+    const handleMouseDown = () => setClicked(true);
+    const handleMouseUp = () => setClicked(false);
+    
+    const handleLinkHoverIn = () => setLinkHovered(true);
+    const handleLinkHoverOut = () => setLinkHovered(false);
+    
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mousedown', handleMouseDown);
+    document.addEventListener('mouseup', handleMouseUp);
+    
+    const links = document.querySelectorAll('a, button');
+    links.forEach(link => {
+      link.addEventListener('mouseenter', handleLinkHoverIn);
+      link.addEventListener('mouseleave', handleLinkHoverOut);
+    });
+    
     return () => {
-      window.removeEventListener("resize", checkDevice);
-      if (!isMobile) {
-        window.removeEventListener("mousemove", updateMousePosition);
-      }
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mousedown', handleMouseDown);
+      document.removeEventListener('mouseup', handleMouseUp);
+      
+      links.forEach(link => {
+        link.removeEventListener('mouseenter', handleLinkHoverIn);
+        link.removeEventListener('mouseleave', handleLinkHoverOut);
+      });
     };
-  }, [isMobile]);
-
-  const variants = {
-    default: {
-      x: position.x,
-      y: position.y,
-    },
-  };
-
-  // Don't render anything until after hydration
-  if (!mounted) return null;
-
-  // Don't render cursor on mobile devices
-  if (isMobile) {
-    return null;
-  }
-
+  }, []);
+  
   return (
     <>
-      <style jsx global>{`
-        @media (pointer: fine) {
-          * {
-            cursor: none !important;
-          }
-        }
-      `}</style>
-      
-      {/* Outer ring */}
       <motion.div
-        className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-[999] rounded-full hidden md:block"
-        variants={variants}
-        animate="default"
-        transition={{
-          type: "spring",
-          mass: 0.6,
-          damping: 30,
-          stiffness: 700,
+        className="fixed top-0 left-0 w-6 h-6 rounded-full border border-primary z-50 pointer-events-none mix-blend-difference"
+        style={{ translateX: position.x - 12, translateY: position.y - 12 }}
+        animate={{
+          scale: clicked ? 0.8 : linkHovered ? 1.5 : 1,
         }}
-        style={{
-          transform: 'translate(-50%, -50%)'
-        }}
-      >
-        <motion.div
-          className="relative w-full h-full"
-          animate={{
-            scale: isPointer ? 1.5 : 1,
-            opacity: 1,
-          }}
-          transition={{
-            type: "spring",
-            mass: 0.6,
-            damping: 30,
-            stiffness: 700,
-          }}
-        >
-          <div className="absolute inset-0 border border-black dark:border-white rounded-full opacity-30" />
-        </motion.div>
-      </motion.div>
-
-      {/* Inner dot */}
+        transition={{ duration: 0.1 }}
+      />
       <motion.div
-        className="fixed top-0 left-0 pointer-events-none z-[999] hidden md:block"
-        variants={variants}
-        animate="default"
-        transition={{
-          type: "spring",
-          mass: 0.2,
-          damping: 50,
-          stiffness: 800,
-        }}
-        style={{
-          transform: 'translate(-50%, -50%)'
-        }}
-      >
-        <motion.div
-          className="w-1.5 h-1.5 bg-black dark:bg-white rounded-full"
-          animate={{
-            scale: isPointer ? 1.2 : 1,
-            opacity: isPointer ? 0.5 : 1,
-          }}
-          transition={{
-            type: "spring",
-            mass: 0.2,
-            damping: 50,
-            stiffness: 800,
-          }}
-        />
-      </motion.div>
+        className="fixed top-0 left-0 w-2 h-2 bg-primary rounded-full z-50 pointer-events-none"
+        style={{ translateX: position.x - 4, translateY: position.y - 4 }}
+      />
     </>
   );
-}
+} 

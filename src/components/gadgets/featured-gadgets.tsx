@@ -12,7 +12,7 @@ const FeaturedGadgets = () => {
 
   return (
     <div className="space-y-4">
-      <h2 className="text-xl font-bold">Gadgets That I Use</h2>
+      <h2 className="text-xl font-bold">Gears</h2>
       <div className="grid gap-6 sm:grid-cols-2">
         {featuredGadgets.map((product) => (
           <GadgetCard key={product.id} product={product} />

@@ -12,7 +12,6 @@ import Link from "next/link";
 import Image from "next/image";
 import Markdown from "react-markdown";
 import { PersonSchema } from "@/components/schema/person-schema";
-import { FeaturedGadgets } from "@/components/gadgets/featured-gadgets";
 import { Metadata } from 'next';
 import { Icons } from "@/components/icons";
 import ShinyButton from "@/components/ui/shiny-button";
@@ -286,14 +285,6 @@ export default function Page() {
         </div>
       </section>
 
-      {/* Gadgets Section */}
-      <section id="gadgets">
-        <BlurFade delay={BLUR_FADE_DELAY * 9}>
-          <FeaturedGadgets />
-        </BlurFade>
-      </section>
-
-      {/* Videos Section */}
       <section id="videos">
         <BlurFade delay={BLUR_FADE_DELAY * 10}>
           <div className="space-y-4">

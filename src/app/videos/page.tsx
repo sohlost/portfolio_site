@@ -1,6 +1,7 @@
 import BlurFade from "@/components/magicui/blur-fade";
-import { VideoCard } from "@/components/video-card";
+import dynamic from "next/dynamic";
 import { DATA } from "@/data/resume";
+import { VideoSkeleton } from "@/components/skeletons/video-skeleton";
 
 export const metadata = {
   title: "Videos",
@@ -8,6 +9,10 @@ export const metadata = {
 };
 
 const BLUR_FADE_DELAY = 0.04;
+
+const VideoCard = dynamic(() => import("@/components/video-card").then(mod => mod.VideoCard), {
+  loading: () => <VideoSkeleton />
+});
 
 export default function VideosPage() {
   return (

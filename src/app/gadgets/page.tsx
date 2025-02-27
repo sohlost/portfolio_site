@@ -1,10 +1,11 @@
 'use client';
 
-import React, { useState, useMemo } from 'react';
+import React, { useState, useMemo, Suspense } from 'react';
 import { GadgetCard } from '@/components/gadgets/gadget-card';
 import { GadgetFilters } from '@/components/gadgets/gadget-filters';
 import { products } from '@/data/products';
 import BlurFade from '@/components/magicui/blur-fade';
+import { GadgetSkeleton } from "@/components/skeletons/gadget-skeleton";
 
 export default function GadgetsPage() {
   const [searchQuery, setSearchQuery] = useState('');
@@ -28,37 +29,39 @@ export default function GadgetsPage() {
 
   return (
     <main className="container mx-auto px-4 py-8">
-      <BlurFade>
-        <div className="max-w-3xl mx-auto mb-12 text-center">
-          <h1 className="text-4xl font-bold mb-4">My Gadgets 🛠</h1>
-          <p className="text-muted-foreground text-lg">
-           Here are some of my favorite Gadgets that I use on a daily basis.
-           I've included affilate links to Amazon for each product, so if you're interested in purchasing one, I'd appreciate it if you used my link.
-          </p>
-        </div>
-        
-        <div className="max-w-4xl mx-auto">
-          <GadgetFilters
-            searchQuery={searchQuery}
-            setSearchQuery={setSearchQuery}
-            selectedCategory={selectedCategory}
-            setSelectedCategory={setSelectedCategory}
-            categories={categories}
-          />
+      <Suspense fallback={<GadgetSkeleton />}>
+        <BlurFade>
+          <div className="max-w-3xl mx-auto mb-12 text-center">
+            <h1 className="text-4xl font-bold mb-4">My Gadgets 🛠</h1>
+            <p className="text-muted-foreground text-lg">
+              Here are some of my favorite Gadgets that I use on a daily basis.
+              I've included affilate links to Amazon for each product, so if you're interested in purchasing one, I'd appreciate it if you used my link.
+            </p>
+          </div>
           
-          {filteredProducts.length === 0 ? (
-            <div className="text-center py-8 text-muted-foreground">
-              No gadgets found matching your criteria
-            </div>
-          ) : (
-            <div className="grid gap-6 sm:grid-cols-2">
-              {filteredProducts.map((product) => (
-                <GadgetCard key={product.id} product={product} />
-              ))}
-            </div>
-          )}
-        </div>
-      </BlurFade>
+          <div className="max-w-4xl mx-auto">
+            <GadgetFilters
+              searchQuery={searchQuery}
+              setSearchQuery={setSearchQuery}
+              selectedCategory={selectedCategory}
+              setSelectedCategory={setSelectedCategory}
+              categories={categories}
+            />
+            
+            {filteredProducts.length === 0 ? (
+              <div className="text-center py-8 text-muted-foreground">
+                No gadgets found matching your criteria
+              </div>
+            ) : (
+              <div className="grid gap-6 sm:grid-cols-2">
+                {filteredProducts.map((product) => (
+                  <GadgetCard key={product.id} product={product} />
+                ))}
+              </div>
+            )}
+          </div>
+        </BlurFade>
+      </Suspense>
     </main>
   );
 }

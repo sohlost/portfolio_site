@@ -17,26 +17,10 @@ import { Icons } from "@/components/icons";
 import ShinyButton from "@/components/ui/shiny-button";
 import { RainbowButton } from "@/components/ui/rainbow-button";
 import { SocialIconLink } from "@/components/social-icon-link";
-
-const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
-  ssr: true,
-  loading: () => <div className="h-[120px] animate-pulse bg-muted rounded-lg" />
-});
-
-const GithubContributions = dynamic(() => import("@/components/github-calendar").then(mod => mod.GithubContributions), {
-  ssr: false,
-  loading: () => <div className="h-[200px] animate-pulse bg-muted rounded-lg" />
-});
-
-const ProjectCardDynamic = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), {
-  ssr: true,
-  loading: () => <div className="h-[300px] animate-pulse bg-muted rounded-lg" />
-});
-
-const HackathonCardDynamic = dynamic(() => import("@/components/hackathon-card").then(mod => mod.HackathonCard), {
-  ssr: true,
-  loading: () => <div className="h-[300px] animate-pulse bg-muted rounded-lg" />
-});
+import { BlogSkeleton } from "@/components/skeletons/blog-skeleton";
+import { GithubSkeleton } from "@/components/skeletons/github-skeleton";
+import { ProjectSkeleton } from "@/components/skeletons/project-skeleton";
+import { HackathonSkeleton } from "@/components/skeletons/hackathon-skeleton";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -67,6 +51,26 @@ export const metadata: Metadata = {
     images: ['https://prasen.dev/portfolio.png'],
   },
 };
+
+const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.BlogCard), {
+  ssr: true,
+  loading: () => <BlogSkeleton />
+});
+
+const GithubContributions = dynamic(() => import("@/components/github-calendar").then(mod => mod.GithubContributions), {
+  ssr: false,
+  loading: () => <GithubSkeleton />
+});
+
+const ProjectCardDynamic = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), {
+  ssr: true,
+  loading: () => <ProjectSkeleton />
+});
+
+const HackathonCardDynamic = dynamic(() => import("@/components/hackathon-card").then(mod => mod.HackathonCard), {
+  ssr: true,
+  loading: () => <HackathonSkeleton />
+});
 
 export default function Page() {
   return (
@@ -317,7 +321,11 @@ export default function Page() {
           <div className="space-y-4">
             <h2 className="text-xl font-bold">Contact</h2>
             
-            <div className="mt-4">
+            <p className="text-muted-foreground">
+              Always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out!
+            </p>
+            
+            <div className="mt-6 space-y-4">
               <a
                 href="mailto:prasen.nayak@hotmail.com"
                 className="flex items-center gap-2 underline underline-offset-4 hover:opacity-70 transition-opacity"
@@ -325,9 +333,7 @@ export default function Page() {
                 <Icons.email className="size-4" />
                 prasen.nayak@hotmail.com
               </a>
-            </div>
 
-            <div className="mt-6">
               <a
                 href={DATA.contact.social.X.url}
                 target="_blank"
@@ -341,25 +347,25 @@ export default function Page() {
           </div>
         </BlurFade>
       </section>
-<footer className="mt-20 border-t py-8">
-  <BlurFade delay={BLUR_FADE_DELAY * 15}>
-    <div className="container mx-auto px-4">
-      <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-        <div className="text-sm text-muted-foreground">
-          Copyright &copy;{new Date().getFullYear()} {DATA.name}. All rights reserved.
-        </div>
-        <div className="flex space-x-4">
-          <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-foreground">
-            Sitemap
-          </Link>
-          <Link href="/rss.xml" className="text-sm text-muted-foreground hover:text-foreground">
-            RSS
-          </Link>
-        </div>
-      </div>
-    </div>
-  </BlurFade>
-</footer>
+      <footer className="mt-20 border-t py-8">
+        <BlurFade delay={BLUR_FADE_DELAY * 15}>
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="text-sm text-muted-foreground">
+                Copyright &copy;{new Date().getFullYear()} {DATA.name}. All rights reserved.
+              </div>
+              <div className="flex space-x-4">
+                <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-foreground">
+                  Sitemap
+                </Link>
+                <Link href="/rss.xml" className="text-sm text-muted-foreground hover:text-foreground">
+                  RSS
+                </Link>
+              </div>
+            </div>
+          </div>
+        </BlurFade>
+      </footer>
     </main>
   );
 }

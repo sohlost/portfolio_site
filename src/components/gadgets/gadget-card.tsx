@@ -6,9 +6,8 @@ import { motion } from 'framer-motion';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { Product } from '@/data/products';
-import { Card, CardContent } from '@/components/ui/card';
 import Link from 'next/link';
-import { formatPrice } from "@/lib/utils";
+import { ShoppingCart } from "lucide-react";  // Change from ShoppingBag to ShoppingCart
 
 interface GadgetCardProps {
   product: Product;
@@ -48,7 +47,7 @@ export function GadgetCard({ product }: GadgetCardProps) {
         <h3 className="font-semibold mb-2 line-clamp-1">{product.title}</h3>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{product.description}</p>
         
-        <div className="flex flex-col gap-1 mb-4">
+        {/* <div className="flex flex-col gap-1 mb-4">
           <div className="flex items-center gap-2">
             <span className="text-2xl font-bold">₹{product.sellingPrice}</span>
             <div className="flex flex-col">
@@ -60,21 +59,22 @@ export function GadgetCard({ product }: GadgetCardProps) {
               </span>
             </div>
           </div>
-        </div>
+        </div> */}
 
         <Button
           variant="default"
-          size="sm"
-          className="w-full"
+          size="lg"
+          className="w-full font-semibold text-base"
           asChild
         >
           <Link
             href={product.amazonLink}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full flex items-center justify-center"
+            className="w-full flex items-center justify-center gap-2"
           >
-            Buy Now
+              Buy on Amazon
+            <ShoppingCart className="size-4" />  {/* Moved to after text and changed size */}
           </Link>
         </Button>
       </div>

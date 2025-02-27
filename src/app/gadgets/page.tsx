@@ -30,10 +30,10 @@ export default function GadgetsPage() {
     <main className="container mx-auto px-4 py-8">
       <BlurFade>
         <div className="max-w-3xl mx-auto mb-12 text-center">
-          <h1 className="text-4xl font-bold mb-4">My Gadget Recommendations</h1>
+          <h1 className="text-4xl font-bold mb-4">My Gears</h1>
           <p className="text-muted-foreground text-lg">
-            Here are some of my favorite gadgets that I personally use and recommend. These tools have helped me be more productive
-            and enhance my workflow. I've included affiliate links - if you find these recommendations helpful, consider using them!
+           Here are some of my favorite Gears that I use on a daily basis.
+           I've included affilate links to Amazon for each product, so if you're interested in purchasing one, I'd appreciate it if you used my link.
           </p>
         </div>
         

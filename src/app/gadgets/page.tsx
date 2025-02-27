@@ -28,18 +28,17 @@ export default function GadgetsPage() {
   }, [searchQuery, selectedCategory]);
 
   return (
-    <main className="container mx-auto px-4 py-8">
+    <main className="container max-w-6xl mx-auto px-4 py-12">
       <Suspense fallback={<GadgetSkeleton />}>
         <BlurFade>
-          <div className="max-w-3xl mx-auto mb-12 text-center">
-            <h1 className="text-4xl font-bold mb-4">My Gadgets 🛠</h1>
-            <p className="text-muted-foreground text-lg">
-              Here are some of my favorite Gadgets that I use on a daily basis.
-              I've included affilate links to Amazon for each product, so if you're interested in purchasing one, I'd appreciate it if you used my link.
+          <div className="max-w-3xl mx-auto mb-16 text-center space-y-4">
+            <h1 className="text-4xl font-bold tracking-tight sm:text-5xl">My Tech Setup 🚀</h1>
+            <p className="text-muted-foreground text-lg leading-relaxed">
+              Essential tools and gear that power my development workflow. These are products I personally use and recommend.
             </p>
           </div>
           
-          <div className="max-w-4xl mx-auto">
+          <div className="space-y-8">
             <GadgetFilters
               searchQuery={searchQuery}
               setSearchQuery={setSearchQuery}
@@ -49,11 +48,11 @@ export default function GadgetsPage() {
             />
             
             {filteredProducts.length === 0 ? (
-              <div className="text-center py-8 text-muted-foreground">
+              <div className="text-center py-12 text-muted-foreground">
                 No gadgets found matching your criteria
               </div>
             ) : (
-              <div className="grid gap-6 sm:grid-cols-2">
+              <div className="grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
                 {filteredProducts.map((product) => (
                   <GadgetCard key={product.id} product={product} />
                 ))}

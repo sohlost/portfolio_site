@@ -351,8 +351,28 @@ export default function Page() {
         <BlurFade delay={BLUR_FADE_DELAY * 15}>
           <div className="container mx-auto px-4">
             <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-              <div className="text-sm text-muted-foreground">
-                Copyright &copy;{new Date().getFullYear()} {DATA.name}. All rights reserved.
+              <div className="text-sm text-muted-foreground space-y-2">
+                <p>© {new Date().getFullYear()} {DATA.name}. All rights reserved.</p>
+                <p>
+                  Open source under{' '}
+                  <a 
+                    href="https://opensource.org/licenses/MIT" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-foreground"
+                  >
+                    MIT License
+                  </a>
+                  {' '}and available on{' '}
+                  <a 
+                    href="https://github.com/StarKnightt/prasendev" 
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="underline hover:text-foreground"
+                  >
+                    GitHub
+                  </a>
+                </p>
               </div>
               <div className="flex space-x-4">
                 <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-foreground">

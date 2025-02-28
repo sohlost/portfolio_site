@@ -287,7 +287,7 @@ export const DATA = {
         // },
       ],
       image: "",
-      video: "https://video.gumlet.io/6745e593080b60408ca085f7/67b45a97f75469d9ed904d50/download.mp4",
+      video: "https://video.gumlet.io/6745e593080b60408ca085f7/67c1a4d7db58848016a8b73e/download.mp4",
     },
     {
       title: "GitHub Buddy Finder",

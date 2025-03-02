@@ -244,7 +244,7 @@ export const DATA = {
       links: [
         {
           type: "Website",
-          href: "https://resume-builder-ten-opal.vercel.app/",
+          href: "https://builddresume.vercel.app/",
           icon: <Icons.globe className="size-3" />,
         },
         {

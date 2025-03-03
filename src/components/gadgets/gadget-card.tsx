@@ -8,6 +8,7 @@ import { Button } from '@/components/ui/button';
 import type { Product } from '@/data/products';
 import Link from 'next/link';
 import { ShoppingCart } from "lucide-react";
+import { MagicCard } from "@/components/magicui/magic-card";
 
 interface GadgetCardProps {
   product: Product;
@@ -15,13 +16,8 @@ interface GadgetCardProps {
 
 export function GadgetCard({ product }: GadgetCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.3 }}
-      className="group relative bg-card rounded-xl overflow-hidden border border-border/50 hover:border-primary/50 transition-colors"
-    >
-      <div className="relative aspect-square">
+    <MagicCard className="group relative overflow-hidden bg-card rounded-xl">
+      <div className="relative aspect-video">
         <Image
           src={product.imageUrl}
           alt={product.title}
@@ -36,7 +32,7 @@ export function GadgetCard({ product }: GadgetCardProps) {
           </Badge>
         )}
       </div>
-      <div className="p-4">
+      <div className="p-6">
         <div className="flex items-center justify-between mb-2">
           <Badge variant="outline" className="text-xs">{product.category}</Badge>
         </div>
@@ -70,6 +66,6 @@ export function GadgetCard({ product }: GadgetCardProps) {
           </Link>
         </Button>
       </div>
-    </motion.div>
+    </MagicCard>
   );
 }

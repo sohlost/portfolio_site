@@ -7,30 +7,26 @@ import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
 import type { Product } from '@/data/products';
 import Link from 'next/link';
-import { ShoppingCart } from "lucide-react";  // Change from ShoppingBag to ShoppingCart
+import { ShoppingCart } from "lucide-react";
 
 interface GadgetCardProps {
   product: Product;
 }
 
 export function GadgetCard({ product }: GadgetCardProps) {
-  const discount = Math.round(
-    ((product.mrp - product.sellingPrice) / product.mrp) * 100
-  );
-
   return (
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.3 }}
-      className="group bg-card rounded-lg overflow-hidden"
+      className="group relative bg-card rounded-xl overflow-hidden border border-border/50 hover:border-primary/50 transition-colors"
     >
-      <div className="relative aspect-video">
+      <div className="relative aspect-square">
         <Image
           src={product.imageUrl}
           alt={product.title}
           fill
-          className="object-cover"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw"
           priority={product.featured}
         />
@@ -42,24 +38,20 @@ export function GadgetCard({ product }: GadgetCardProps) {
       </div>
       <div className="p-4">
         <div className="flex items-center justify-between mb-2">
-          <Badge variant="outline">{product.category}</Badge>
+          <Badge variant="outline" className="text-xs">{product.category}</Badge>
         </div>
-        <h3 className="font-semibold mb-2 line-clamp-1">{product.title}</h3>
+        <h3 className="font-semibold mb-2 line-clamp-1 text-lg">{product.title}</h3>
         <p className="text-muted-foreground text-sm mb-4 line-clamp-2">{product.description}</p>
         
-        {/* <div className="flex flex-col gap-1 mb-4">
-          <div className="flex items-center gap-2">
+        <div className="flex items-center justify-between mb-4">
+          <div className="flex flex-col">
             <span className="text-2xl font-bold">₹{product.sellingPrice}</span>
-            <div className="flex flex-col">
-              <span className="text-sm text-muted-foreground line-through">
-                M.R.P.: ₹{product.mrp}
-              </span>
-              <span className="text-sm text-green-600 font-medium">
-                Save {discount}%
-              </span>
-            </div>
+            <span className="text-sm text-muted-foreground line-through">₹{product.mrp}</span>
           </div>
-        </div> */}
+          <Badge variant="secondary" className="text-green-600 bg-green-50 dark:bg-green-950">
+            {Math.round(((product.mrp - product.sellingPrice) / product.mrp) * 100)}% OFF
+          </Badge>
+        </div>
 
         <Button
           variant="default"
@@ -73,8 +65,8 @@ export function GadgetCard({ product }: GadgetCardProps) {
             rel="noopener noreferrer"
             className="w-full flex items-center justify-center gap-2"
           >
-              Buy on Amazon
-            <ShoppingCart className="size-4" />  {/* Moved to after text and changed size */}
+            Buy on Amazon
+            <ShoppingCart className="size-4" />
           </Link>
         </Button>
       </div>

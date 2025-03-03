@@ -13,6 +13,7 @@ import { JsonLd } from "@/components/json-ld";
 import { PageBackground } from "@/components/page-background";
 import { Analytics } from "@vercel/analytics/react";
 import { GoogleAnalytics } from '@next/third-parties/google'
+import { SpeedInsights } from "@vercel/speed-insights/react";
 
 const fontSans = FontSans({
   subsets: ["latin"],
@@ -117,12 +118,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body
-        className={cn(
-          "relative min-h-screen font-sans antialiased",
-          fontSans.variable
-        )}
-      >
+      <body className={cn(fontSans.variable, "font-sans antialiased")}>
         {/* Background container */}
         <div className="fixed inset-0 z-[-1]">
           <PageBackground />
@@ -145,10 +141,16 @@ export default function RootLayout({
           </Script>
           <JsonLd />
           <ScrollProgress />
-          <ThemeProvider attribute="class" defaultTheme="light">
+          <ThemeProvider
+            attribute="class"
+            defaultTheme="system"
+            enableSystem
+            disableTransitionOnChange
+          >
             <TooltipProvider delayDuration={0}>
               {children}
               <Analytics />
+              <SpeedInsights />
               <Navbar />
             </TooltipProvider>
           </ThemeProvider>

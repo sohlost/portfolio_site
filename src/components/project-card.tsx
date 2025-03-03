@@ -43,7 +43,7 @@ export function ProjectCard({
   className,
 }: Props) {
   return (
-    <Card className={cn("relative overflow-hidden", className)}>
+    <Card className={cn("relative overflow-hidden group", className)}>
       <Link
         href={href || "#"}
         className="block cursor-pointer"

@@ -21,6 +21,7 @@ import { BlogSkeleton } from "@/components/skeletons/blog-skeleton";
 import { GithubSkeleton } from "@/components/skeletons/github-skeleton";
 import { ProjectSkeleton } from "@/components/skeletons/project-skeleton";
 import { HackathonSkeleton } from "@/components/skeletons/hackathon-skeleton";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -207,11 +208,18 @@ export default function Page() {
           <BlurFade delay={BLUR_FADE_DELAY * 8}>
             <div className="grid gap-4 sm:grid-cols-2">
               {DATA.projects.slice(0, 4).map((project) => (
-                <ProjectCard
-                  key={project.title}
-                  {...project}
-                  tags={Array.from(project.technologies)}
-                />
+                <div key={project.title} className="relative overflow-hidden rounded-xl">
+                  <BorderBeam
+                    duration={4}
+                    size={300}
+                    reverse
+                    className="from-transparent via-purple-500 to-transparent"
+                  />
+                  <ProjectCard
+                    {...project}
+                    tags={Array.from(project.technologies)}
+                  />
+                </div>
               ))}
             </div>
             <Link

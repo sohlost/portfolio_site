@@ -6,6 +6,7 @@ import Image from "next/image";
 import { PlayIcon } from "lucide-react";
 import { useState } from "react";
 import { VideoPlayerModal } from "./video-player-modal";
+import { BorderBeam } from "@/components/magicui/border-beam";
 
 interface VideoCardProps {
   video: {
@@ -23,7 +24,7 @@ export function VideoCard({ video }: VideoCardProps) {
   return (
     <>
       <div onClick={() => setIsModalOpen(true)} className="cursor-pointer">
-        <Card className="overflow-hidden hover:shadow-lg transition-all duration-300">
+        <Card className="overflow-hidden hover:shadow-lg transition-all duration-300 relative"> <BorderBeam />
           <div className="relative group">
             <Image
               src={video.thumbnail}
@@ -32,8 +33,8 @@ export function VideoCard({ video }: VideoCardProps) {
               height={280}
               className="w-full h-48 object-cover"
               priority
-            />
-            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+            /> <BorderBeam />
+            <div className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity duration-300"> 
               <PlayIcon className="w-12 h-12 text-white" />
             </div>
           </div>

@@ -12,6 +12,14 @@ const nextConfig = {
         protocol: 'https',
         hostname: 'avatars.githubusercontent.com',
       },
+      {
+        protocol: 'https',
+        hostname: 'hostinger.in',
+      },
+      {
+        protocol: 'https',
+        hostname: 'assets.hostinger.com',
+      }
     ],
     minimumCacheTTL: 60,
   },

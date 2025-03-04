@@ -22,6 +22,7 @@ import { GithubSkeleton } from "@/components/skeletons/github-skeleton";
 import { ProjectSkeleton } from "@/components/skeletons/project-skeleton";
 import { HackathonSkeleton } from "@/components/skeletons/hackathon-skeleton";
 import { BorderBeam } from "@/components/magicui/border-beam";
+import { CoolMode } from "@/components/magicui/cool-mode";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -342,15 +343,23 @@ export default function Page() {
                 prasen.nayak@hotmail.com
               </a>
 
-              <a
-                href={DATA.contact.social.X.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
-              >
-                <DATA.contact.social.X.icon className="size-4" />
-                Connect on X
-              </a>
+              <div className="relative justify-center">
+                <CoolMode
+                  options={{
+                    particle: "https://pbs.twimg.com/profile_images/1782811051504885763/YR5-kWOI_400x400.jpg",
+                  }}
+                >
+                  <a
+                    href={DATA.contact.social.X.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
+                  >
+                    <DATA.contact.social.X.icon className="size-4" />
+                    Connect on X
+                  </a>
+                </CoolMode>
+              </div>
             </div>
           </div>
         </BlurFade>

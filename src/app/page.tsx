@@ -22,7 +22,6 @@ import { GithubSkeleton } from "@/components/skeletons/github-skeleton";
 import { ProjectSkeleton } from "@/components/skeletons/project-skeleton";
 import { HackathonSkeleton } from "@/components/skeletons/hackathon-skeleton";
 import { BorderBeam } from "@/components/magicui/border-beam";
-import { CoolMode } from "@/components/magicui/cool-mode";
 
 const BLUR_FADE_DELAY = 0.04;
 
@@ -302,10 +301,24 @@ export default function Page() {
         <BlurFade delay={BLUR_FADE_DELAY * 10}>
           <div className="space-y-4">
             <h2 className="text-xl font-bold">Recent Videos</h2>
-            <div className="grid gap-6 sm:grid-cols-2"><BorderBeam />
+            <div className="grid gap-6 sm:grid-cols-2">
               {DATA.videos.slice(-2).map((video, idx) => (
                 <BlurFade key={video.url} delay={BLUR_FADE_DELAY * 11 + idx * 0.05}>
-                  <VideoCard video={video} />
+                  <div className="relative overflow-hidden rounded-xl">
+                    <BorderBeam
+                      size={50}
+                      duration={4}
+                      colorFrom="#ffaa40"
+                      colorTo="#9c40ff"
+                      className="from-transparent via-foreground/20 to-transparent"
+                      transition={{
+                        type: "spring",
+                        stiffness: 60,
+                        damping: 20,
+                      }}
+                    />
+                    <VideoCard video={video} />
+                  </div>
                 </BlurFade>
               ))}
               <BlurFade delay={BLUR_FADE_DELAY * 12}>
@@ -343,23 +356,15 @@ export default function Page() {
                 prasen.nayak@hotmail.com
               </a>
 
-              <div className="relative justify-center">
-                <CoolMode
-                  options={{
-                    particle: "https://pbs.twimg.com/profile_images/1782811051504885763/YR5-kWOI_400x400.jpg",
-                  }}
-                >
-                  <a
-                    href={DATA.contact.social.X.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
-                  >
-                    <DATA.contact.social.X.icon className="size-4" />
-                    Connect on X
-                  </a>
-                </CoolMode>
-              </div>
+              <a
+                href={DATA.contact.social.X.url}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 rounded-md bg-foreground text-background hover:opacity-90 transition-opacity"
+              >
+                <DATA.contact.social.X.icon className="size-4" />
+                Connect on X
+              </a>
             </div>
           </div>
         </BlurFade>

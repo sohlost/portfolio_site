@@ -1,33 +1,36 @@
 'use client';
 
-import { useState } from 'react';
 import { X } from 'lucide-react';
 
-export function HostingerAd() {
-  const [isVisible, setIsVisible] = useState(true);
+interface HostingerAdProps {
+  onClose: () => void;
+}
 
-  if (!isVisible) return null;
-
+export function HostingerAd({ onClose }: HostingerAdProps) {
   return (
-    <div className="fixed bottom-4 right-4 max-w-sm bg-background border rounded-lg shadow-lg p-4 z-50">      
+    <div className="relative w-full bg-background border rounded-lg shadow-lg p-3 sm:p-4">      
+      <div className="absolute -top-2 -left-2 bg-blue-600 text-white text-[10px] px-1.5 py-0.5 rounded">
+        Ad
+      </div>
+      
       <button 
-        onClick={() => setIsVisible(false)}
-        className="absolute top-2 right-2 text-muted-foreground hover:text-foreground"
+        onClick={onClose}
+        className="absolute -top-2 -right-2 bg-muted-foreground/10 hover:bg-muted-foreground/20 rounded-full p-1 transition-colors"
       >
         <X className="h-4 w-4" />
       </button>
 
-      <div className="space-y-3">
+      <div className="space-y-2">
         <div className="flex items-center gap-2">
           <img 
             src="/hostinger-logo.png" 
             alt="Hostinger" 
-            className="h-6"
+            className="h-4 sm:h-5"
           />
-          <h3 className="font-semibold">Special Offer!</h3>
+          <h3 className="font-semibold text-xs sm:text-sm">Special Offer!</h3>
         </div>
         
-        <p className="text-sm text-muted-foreground">
+        <p className="text-xs text-muted-foreground">
           Get premium web hosting starting at ₹69/month with a free domain!
         </p>
         
@@ -35,7 +38,7 @@ export function HostingerAd() {
           href="https://hostinger.in?REFERRALCODE=NP4PRASENELF"
           target="_blank"
           rel="noopener noreferrer"
-          className="block w-full bg-blue-600 text-white text-center py-2 rounded-md hover:bg-blue-700 transition-colors"
+          className="block w-full bg-blue-600 text-white text-center py-1.5 sm:py-2 rounded-md hover:bg-blue-700 transition-colors text-xs sm:text-sm font-medium"
         >
           Claim Offer →
         </a>

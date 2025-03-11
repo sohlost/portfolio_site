@@ -240,6 +240,8 @@ export const DATA = {
         "TypeScript",
         "Imagekit",
         "shadcnUI",
+        "DreamStudio",
+        "Stability AI",
       ],
       links: [
         {

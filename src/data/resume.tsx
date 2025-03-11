@@ -226,6 +226,37 @@ export const DATA = {
   ],
   projects: [
     {
+      title: "Wallpaper App",
+      href: "https://www.wallpaperz.in/",
+      dates: "January 2025 - February 2025",
+      active: true,
+      description:
+        "A modern wallpaper discovery platform where you can find stunning wallpapers and generate images with AI.",
+      technologies: [
+        "Next.js",
+        "Git",
+        "TailwindCSS",
+        "Framer-motion",
+        "TypeScript",
+        "Imagekit",
+        "shadcnUI",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://www.wallpaperz.in/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/StarKnightt/wallpaperz",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "https://video.gumlet.io/6745e593080b60408ca085f7/67c1a4d7db58848016a8b73e/download.mp4",
+    },
+    {
       title: "Resume Builder",
       href: "https://resume-builder-ten-opal.vercel.app/",
       dates: "May 2023 - Sept 2023",
@@ -257,37 +288,6 @@ export const DATA = {
       image: "",
       video:
         "https://video.gumlet.io/6745e593080b60408ca085f7/6745e5e5080b60408ca08984/download.mp4",
-    },
-    {
-      title: "Wallpaper App",
-      href: "https://www.wallpaperz.in/",
-      dates: "January 2025 - February 2025",
-      active: true,
-      description:
-        "A modern wallpaper discovery platform where you can find stunning wallpapers for your desktop.It's a platform where you can find wallpapers for your desktop.",
-      technologies: [
-        "Next.js",
-        "Git",
-        "TailwindCSS",
-        "Framer-motion",
-        "TypeScript",
-        "Imagekit",
-        "shadcnUI",
-      ],
-      links: [
-        {
-          type: "Website",
-          href: "https://www.wallpaperz.in/",
-          icon: <Icons.globe className="size-3" />,
-        },
-        // {
-        //   type: "Source",
-        //   href: "https://github.com/StarKnightt/Coffee-Website",
-        //   icon: <Icons.github className="size-3" />,
-        // },
-      ],
-      image: "",
-      video: "https://video.gumlet.io/6745e593080b60408ca085f7/67c1a4d7db58848016a8b73e/download.mp4",
     },
     {
       title: "GitHub Buddy Finder",

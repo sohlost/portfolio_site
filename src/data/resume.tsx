@@ -256,7 +256,7 @@ export const DATA = {
         },
       ],
       image: "",
-      video: "https://video.gumlet.io/6745e593080b60408ca085f7/67c1a4d7db58848016a8b73e/download.mp4",
+      video: "https://video.gumlet.io/6745e593080b60408ca085f7/67d5057eefcecbdea7560e35/download.mp4",
     },
     {
       title: "Resume Builder",

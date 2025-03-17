@@ -70,6 +70,13 @@ export const DATA = {
       thumbnail: "/video6.avif",
       url:"https://youtu.be/BgB2pW6QgVg",
       date: "2025-01-29"
+    },
+    {
+      title:"How to do zoom in and out video recording in Windows for free. (Hindi)",
+      description:"Learn how to do zoom in and out video recording in Windows for free.",
+      thumbnail: "/video7.avif",
+      url:"https://youtu.be/WziGdEiT9fE",
+      date: "2025-03-16"
     }
     
   ],

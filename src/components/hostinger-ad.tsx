@@ -1,6 +1,7 @@
 'use client';
 
 import { X } from 'lucide-react';
+import Image from 'next/image';
 
 interface HostingerAdProps {
   onClose: () => void;
@@ -20,28 +21,34 @@ export function HostingerAd({ onClose }: HostingerAdProps) {
         <X className="h-4 w-4" />
       </button>
 
-      <div className="space-y-2">
-        <div className="flex items-center gap-2">
-          <img 
-            src="/hostinger-logo.png" 
-            alt="Hostinger" 
-            className="h-4 sm:h-5"
+      <div className="flex items-start gap-3">
+        <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0 relative">
+          <Image 
+            src="/images/hostinger-logo.png" 
+            alt="Hostinger"
+            fill
+            sizes="64px"
+            className="object-cover"
           />
-          <h3 className="font-semibold text-xs sm:text-sm">Special Offer!</h3>
         </div>
-        
-        <p className="text-xs text-muted-foreground">
-          Get premium web hosting starting at ₹69/month with a free domain!
-        </p>
-        
-        <a
-          href="https://hostinger.in?REFERRALCODE=NP4PRASENELF"
-          target="_blank"
-          rel="noopener noreferrer"
-          className="block w-full bg-blue-600 text-white text-center py-1.5 sm:py-2 rounded-md hover:bg-blue-700 transition-colors text-xs sm:text-sm font-medium"
-        >
-          Claim Offer →
-        </a>
+        <div className="space-y-2">
+          <div className="flex items-center gap-2">
+            <h3 className="font-semibold text-xs sm:text-sm">Special Offer!</h3>
+          </div>
+          
+          <p className="text-xs text-muted-foreground">
+            Get premium web hosting starting at ₹69/month with a free domain!
+          </p>
+          
+          <a
+            href="https://hostinger.in?REFERRALCODE=NP4PRASENELF"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="block w-full bg-blue-600 text-white text-center py-1.5 sm:py-2 rounded-md hover:bg-blue-700 transition-colors text-xs sm:text-sm font-medium"
+          >
+            Claim Offer →
+          </a>
+        </div>
       </div>
     </div>
   );

@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react';
 import { X } from 'lucide-react';
 import { products } from '@/data/products';
+import Image from 'next/image';
 
 interface ProductPromotionProps {
   onClose: () => void;
@@ -44,11 +45,15 @@ export function ProductPromotion({ onClose }: ProductPromotionProps) {
 
       <div className="space-y-2">
         <div className="flex items-start gap-2">
-          <img 
-            src={product.imageUrl} 
-            alt={product.title}
-            className="h-12 w-12 sm:h-14 sm:w-14 object-cover rounded"
-          />
+          <div className="w-16 h-16 rounded overflow-hidden flex-shrink-0 relative">
+            <Image 
+              src={product.imageUrl} 
+              alt={product.title}
+              fill
+              sizes="64px"
+              className="object-cover"
+            />
+          </div>
           <div className="flex-1 min-w-0">
             <h3 className="font-semibold text-xs sm:text-sm line-clamp-2">{product.title}</h3>
             <p className="text-green-600 text-xs font-medium">{discount}% OFF</p>

@@ -43,6 +43,9 @@
       --color-4: 195 100% 63%;
 
       --color-5: 90 100% 63%;
+
+      --ghibli-element-fill: 210 11.1% 85%; /* Light gray for light mode */
+      --ghibli-element-opacity: 0.6;
     }
 
     .dark {
@@ -78,6 +81,9 @@
       --color-3: 210 100% 63%;
       --color-4: 195 100% 63%;
       --color-5: 90 100% 63%;
+
+      --ghibli-element-fill: 0 0% 100%; /* White for dark mode */
+      --ghibli-element-opacity: 0.9;
     }
   }
 

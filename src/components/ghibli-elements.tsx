@@ -31,8 +31,8 @@ export function FloatingCloud({ className, delay = 0, duration = 20 }: {
       >
         <path
           d="M165.243 57.95C161.019 41.214 146.761 29.099 129.764 29.099C123.221 29.099 116.883 30.815 111.427 34.003C102.94 16.002 85.085 3.998 64.757 3.998C35.269 3.998 11.262 27.899 11.262 57.261C11.262 58.189 11.288 59.112 11.339 60.03C4.75 65.508 0.5 74.19 0.5 83.9C0.5 100.063 13.55 113 29.85 113H158.65C169.798 113 178.845 104.024 178.845 92.962C178.845 79.988 173.209 69.077 165.243 57.95Z"
-          fill="white"
-          fillOpacity="0.9"
+          fill="hsl(var(--ghibli-element-fill))"
+          fillOpacity="var(--ghibli-element-opacity)"
         />
       </svg>
     </motion.div>
@@ -60,13 +60,13 @@ export function GhibliSpirit({ className }: { className?: string }) {
       >
         <path
           d="M20 2C16.2 2 13.5 5.8 13.5 10.5C13.5 15.2 16.2 19 20 19C23.8 19 26.5 15.2 26.5 10.5C26.5 5.8 23.8 2 20 2Z"
-          fill="white"
-          fillOpacity="0.9"
+          fill="hsl(var(--ghibli-element-fill))"
+          fillOpacity="var(--ghibli-element-opacity)"
         />
         <path
           d="M19.9999 17C16.6862 17 14.5 22.3726 14.5 29C14.5 35.6274 16.6862 41 19.9999 41C23.3137 41 25.5 35.6274 25.5 29C25.5 22.3726 23.3137 17 19.9999 17Z"
-          fill="white"
-          fillOpacity="0.9"
+          fill="hsl(var(--ghibli-element-fill))"
+          fillOpacity="var(--ghibli-element-opacity)"
         />
         <ellipse cx="17" cy="9" rx="1.5" ry="2" fill="black" />
         <ellipse cx="23" cy="9" rx="1.5" ry="2" fill="black" />

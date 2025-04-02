@@ -239,3 +239,27 @@ code[data-line-numbers-max-digits="3"] > [data-line]::before {
     transform: rotate(360deg);
   }
 }
+
+/* Add these new styles */
+.text-mask {
+  position: relative;
+  mix-blend-mode: difference;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  background-image: linear-gradient(
+    to right,
+    hsl(var(--foreground)),
+    hsl(var(--foreground))
+  );
+}
+
+.cloud-container {
+  position: relative;
+  isolation: isolate;
+}
+
+.mix-blend-overlay {
+  mix-blend-mode: overlay;
+  filter: contrast(1.2);
+}

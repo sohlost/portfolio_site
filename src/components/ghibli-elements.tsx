@@ -1,7 +1,7 @@
 "use client"
 
-import React from "react";
-import { motion } from "framer-motion";
+import React, { useEffect, useRef, useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 
 export function FloatingCloud({ className, delay = 0, duration = 20 }: {
   className?: string;
@@ -95,16 +95,55 @@ export function LeafDecoration({ className }: { className?: string }) {
   );
 }
 
-export function GhibliSkyBackground() {
+function CloudPool({ index }: { index: number }) {
+  // Using the exact same cloud patterns as the original
+  const cloudPatterns = [
+    { className: "top-[10%] opacity-80", delay: 0, duration: 20 },
+    { className: "top-[5%] opacity-90 scale-75", delay: 7, duration: 25 },
+    { className: "top-[15%] opacity-70 scale-50", delay: 3, duration: 18 },
+  ];
+
+  const pattern = cloudPatterns[index % cloudPatterns.length];
+
   return (
-    <>
-      <FloatingCloud className="top-[10%] opacity-80" delay={0} />
-      <FloatingCloud className="top-[5%] opacity-90 scale-75" delay={7} duration={25} />
-      <FloatingCloud className="top-[15%] opacity-70 scale-50" delay={3} duration={18} />
+    <FloatingCloud 
+      className={pattern.className}
+      delay={pattern.delay}
+      duration={pattern.duration}
+    />
+  );
+}
+
+export function GhibliSkyBackground() {
+  const [isVisible, setIsVisible] = useState(true);
+  const CLOUD_COUNT = 4; //cloud count
+
+  useEffect(() => {
+    const handleVisibilityChange = () => {
+      setIsVisible(document.visibilityState === 'visible');
+    };
+
+    document.addEventListener('visibilitychange', handleVisibilityChange);
+    return () => {
+      document.removeEventListener('visibilitychange', handleVisibilityChange);
+    };
+  }, []);
+
+  return (
+    <div className="relative w-full h-full overflow-hidden">
+      <AnimatePresence>
+        {isVisible && (
+          <>
+            {Array.from({ length: CLOUD_COUNT }).map((_, index) => (
+              <CloudPool key={index} index={index} />
+            ))}
+          </>
+        )}
+      </AnimatePresence>
       <GhibliSpirit className="absolute top-[20%] right-[15%]" />
       <GhibliSpirit className="absolute bottom-[30%] left-[10%] scale-75" />
       <LeafDecoration className="top-[5%] right-[5%] rotate-45" />
       <LeafDecoration className="bottom-[10%] left-[5%] rotate-12" />
-    </>
+    </div>
   );
 }

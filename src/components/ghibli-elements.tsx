@@ -104,7 +104,6 @@ function CloudPool({ index }: { index: number }) {
   ];
 
   const pattern = cloudPatterns[index % cloudPatterns.length];
-
   return (
     <FloatingCloud 
       className={pattern.className}
@@ -137,7 +136,7 @@ export function GhibliSkyBackground() {
             {Array.from({ length: CLOUD_COUNT }).map((_, index) => (
               <CloudPool key={index} index={index} />
             ))}
-          </>
+          </>     
         )}
       </AnimatePresence>
       <GhibliSpirit className="absolute top-[20%] right-[15%]" />

@@ -179,10 +179,10 @@ export default function Page() {
                 />
                 <BlogCard
                   post={{
-                    title: "Web Developement for 2025: A Guide to what's next",
-                    publishedAt: "2025-01-02",
-                    summary: "Web Development has come a long way,let's know more about it",
-                    slug: "web-development-2025"
+                    title: "How to use Cursor AI IDE pro for Free ?",
+                    publishedAt: "2025-04-09",
+                    summary: "A comprehensive guide explaining how to use Cursor for free",
+                    slug: "cursor-free"
                   }}
                 />
                 <Link

@@ -215,12 +215,6 @@ export default function Page() {
               <div className="grid gap-4 sm:grid-cols-2">
                 {DATA.projects.slice(0, 4).map((project) => (
                   <div key={project.title} className="relative overflow-hidden rounded-xl">
-                    <BorderBeam
-                      duration={4}
-                      size={300}
-                      reverse
-                      className="from-transparent via-purple-500 to-transparent"
-                    />
                     <ProjectCard
                       {...project}
                       tags={Array.from(project.technologies)}

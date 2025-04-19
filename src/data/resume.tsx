@@ -233,7 +233,38 @@ export const DATA = {
   ],
   projects: [
     {
-      title: "Wallpaper App",
+      title: "CleanType",
+      href: "https://clean-type.vercel.app/",
+      dates: "March 2025 - Ongoing",
+      active: true,
+      description:
+        "A super minimalist write experience, type with minimalist, no noise and distraction, completely fresh Windows app, with a clean UI and no ads, just pure writing experience.",
+      technologies: [
+        "Rust",
+        "Tauri",
+        "Typescript",
+        "CSS",
+        "Vite",
+        "Git",
+        "React",
+      ],
+      links: [
+        {
+          type: "Website",
+          href: "https://clean-type.vercel.app/",
+          icon: <Icons.globe className="size-3" />,
+        },
+        {
+          type: "Source",
+          href: "https://github.com/StarKnightt/CleanType",
+          icon: <Icons.github className="size-3" />,
+        },
+      ],
+      image: "",
+      video: "https://video.gumlet.io/6745e593080b60408ca085f7/68011ca73ab3a7b826bbfac0/download.mp4",
+    },
+    {
+      title: "Wallpaperz",
       href: "https://www.wallpaperz.in/",
       dates: "January 2025 - February 2025",
       active: true,

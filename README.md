@@ -137,6 +137,11 @@ This website is PWA-ready with:
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=StarKnightt/prasendev&type=Date)](https://www.star-history.com/#StarKnightt/prasendev&Date)
+
+
 ## 🙏 Acknowledgments
 
 - [shadcn/ui](https://ui.shadcn.com/) for the beautiful UI components
@@ -146,6 +151,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📧 Contact
 
-Your Name - [@yourusername](https://twitter.com/Star_Knight12)
+Your Name - [@Prasenjit](https://twitter.com/Star_Knight12)
 
 Project Link: [Try it here](https://prasen.dev)

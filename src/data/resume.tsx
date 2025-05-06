@@ -77,8 +77,14 @@ export const DATA = {
       thumbnail: "/video7.avif",
       url:"https://youtu.be/WziGdEiT9fE",
       date: "2025-03-16"
+    },
+    {
+      title:"I Finally Got My FIRST PC!",
+      description: "In this video I talked about my first PC, overall experience was really good, I also talked about the components that I used in the PC in details as well as why to use them and why not.",
+      thumbnail: "/video8.avif",
+      url:"https://youtu.be/vHTbqgmB2U8",
+      date: "2025-05-06"
     }
-    
   ],
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },

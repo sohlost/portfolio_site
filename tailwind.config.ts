@@ -109,15 +109,8 @@ const config = {
   				}
   			},
   			shine: {
-  				'0%': {
-  					'background-position': '0% 0%'
-  				},
-  				'50%': {
-  					'background-position': '100% 100%'
-  				},
-  				to: {
-  					'background-position': '0% 0%'
-  				}
+  				"0%": { transform: "translateX(-200%)" },
+  				"100%": { transform: "translateX(200%)" },
   			},
   			'aurora-border': {
   				'0%, 100%': {
@@ -195,7 +188,7 @@ const config = {
   			'accordion-up': 'accordion-up 0.2s ease-out',
   			meteor: 'meteor 5s linear infinite',
   			rainbow: 'rainbow var(--speed, 2s) infinite linear',
-  			shine: 'shine var(--duration) infinite linear'
+  			shine: 'shine 2s infinite'
   		}
   	}
   },

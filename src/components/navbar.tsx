@@ -10,7 +10,7 @@ import {
 import { DATA } from "@/data/resume";
 import { cn } from "@/lib/utils";
 import Link from "next/link";
-import { CliButton } from "@/components/cli-button";
+// import { CliButton } from "@/components/cli-button";
 
 export default function Navbar() {
   return (
@@ -37,9 +37,34 @@ export default function Navbar() {
             </Tooltip>
           </DockIcon>
         ))}
-        <DockIcon>
+        {/* <DockIcon>
           <CliButton />
-        </DockIcon>
+        </DockIcon> */}
+        <Separator orientation="vertical" className="h-full" />
+        {Object.entries(DATA.contact.social)
+          .filter(([, social]) => social.navbar)
+          .map(([name, social]) => (
+            <DockIcon key={name}>
+              <Tooltip>
+                <TooltipTrigger asChild>
+                  <Link
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className={cn(
+                      buttonVariants({ variant: "ghost", size: "icon" }),
+                      "size-12"
+                    )}
+                  >
+                    <social.icon className="size-4" />
+                  </Link>
+                </TooltipTrigger>
+                <TooltipContent>
+                  <p>{social.name}</p>
+                </TooltipContent>
+              </Tooltip>
+            </DockIcon>
+          ))}
         <Separator orientation="vertical" className="h-full" />
         <DockIcon>
           <Tooltip>

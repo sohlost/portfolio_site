@@ -1,19 +1,19 @@
 import { Icons } from "@/components/icons";
 import { Description } from "@radix-ui/react-dialog";
 import { url } from "inspector";
-import { HomeIcon, NotebookIcon, ThumbsDown, VideoIcon, FolderIcon } from "lucide-react";
+import { HomeIcon, NotebookIcon, FolderIcon } from "lucide-react";
 import { title } from "process";
 
 export const DATA = {
-  name: "Prasenjit Nayak",
-  initials: "PN",
-  url: "https://github.com/StarKnightt/prasendev",
-  location: "Odisha, India",
-  locationLink: "https://www.google.com/maps/place/odisha",
+  name: "Soham Dambalkar",
+  initials: "SD",
+  url: "https://github.com/sohlost",
+  location: "Pune, India",
+  locationLink: "https://www.google.com/maps/place/Pune",
   description:
-    "A Full Stack Developer from India, Code is an art 🎨 be the artist!",
+    "",
   summary:
-    "A Computer Science graduate from [Trident Academy Of Technology](https://tat.ac.in/), specialize in modern web development and am actively working on [open-source projects](https://github.com/StarKnightt). I'm passionate about creating impactful solutions and sharing knowledge through my [technical blog](https://prasen.dev/blog) and [YouTube](https://youtube.com/@Star_Knight12) channel as well as on [X(Twitter)](https://x.com/Star_Knight12/highlights) too | Free-lancer.",
+    "-am a pre-final year computer science student at BITS Pilani, K.K.Birla Goa Campus.",
   avatarUrl: "/hi.webp",
   skills: [
     "React",
@@ -28,70 +28,11 @@ export const DATA = {
     "RestAPI",
     "AI API",
   ],
-  videos: [
-    {
-      title: "Track Your Coding time for free",
-      description: "Learn how to track your code time with complete analytics and insights.",
-      thumbnail: "/video1.avif",
-      url: "https://youtu.be/tBatfQjWxCg?si=sy2vZbCHoIYNME-3",
-      date: "2024-05-15"
-    },
-    {
-      title: "Fix multi-cursor in VS Code",
-      description: "Simple trick to fix multi-cursor in VS Code.",
-      thumbnail: "/video2.avif",
-      url: "https://youtu.be/E9h7M6ZK_tA?si=ykzV7ARU4VMnbBRo",
-      date: "2024-07-01"
-    },
-    {
-     title: "Twitter(X)'s monetization (Hindi)",
-     description: "Is the policy broken? Let's find out.",
-     thumbnail: "/video3.avif",
-     url: "https://youtu.be/Z3h1jt6jKLY?si=blL4l4FNco9WW9FT",
-     date: "2024-11-04"
-    },
-    {
-      title:"How to fix any kind of ban in twitter (Hindi)",
-      description: "Learn how to fix any kind of ban in twitter.",
-      thumbnail: "/video4.avif",
-      url:"https://youtu.be/P7JRFrcXlQU",
-      date: "2024-12-24"
-    },
-    {
-      title:"Microsoft's new shocking move (Hindi)",
-      description: "GitHub Copilot is now free for everyone, let's see what's the catch.",
-      thumbnail: "/video5.avif",
-      url:"https://www.youtube.com/watch?v=uIJOUe8T3_I",
-      date: "2024-12-19"
-    },
-    {
-      title:"How to run DeepSeek R1 model locally (Hindi)",
-      description:"Learn how to run DeepSeek R1 model locally, in easy steps",
-      thumbnail: "/video6.avif",
-      url:"https://youtu.be/BgB2pW6QgVg",
-      date: "2025-01-29"
-    },
-    {
-      title:"How to do zoom in and out video recording in Windows for free. (Hindi)",
-      description:"Learn how to do zoom in and out video recording in Windows for free.",
-      thumbnail: "/video7.avif",
-      url:"https://youtu.be/WziGdEiT9fE",
-      date: "2025-03-16"
-    },
-    {
-      title:"I Finally Got My FIRST PC!",
-      description: "In this video I talked about my first PC, overall experience was really good, I also talked about the components that I used in the PC in details as well as why to use them and why not.",
-      thumbnail: "/video8.avif",
-      url:"https://youtu.be/vHTbqgmB2U8",
-      date: "2025-05-06"
-    }
-  ],
+
   navbar: [
     { href: "/", icon: HomeIcon, label: "Home" },
     { href: "/blog", icon: NotebookIcon, label: "Blog" },
-    { href: "/videos", icon: VideoIcon, label: "Videos" },
     { href: "/projects", icon: FolderIcon, label: "Projects" },
-    { href: "/gadgets", icon: Icons.shop, label: "Gadgets" },
   ],
   contact: {
     email: "prasenjitt4e@gmail.com",
@@ -99,46 +40,49 @@ export const DATA = {
     social: {
       GitHub: {
         name: "GitHub",
-        url: "https://github.com/StarKnightt",
+        url: "https://github.com/sohlost",
         icon: Icons.github,
-
         navbar: true,
       },
       LinkedIn: {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/prasenjitnayak/",
+        url: "https://www.linkedin.com/in/soham-dambalkar-02468126b/",
         icon: Icons.linkedin,
-
         navbar: true,
       },
       X: {
         name: "X",
-        url: "https://x.com/Star_Knight12",
+        url: "https://x.com/sohlost",
         icon: Icons.x,
-
+        navbar: true,
+      },
+      Medium: {
+        name: "Medium",
+        url: "https://medium.com/@soham.dambalkar",
+        icon: Icons.medium,
         navbar: true,
       },
       Youtube: {
         name: "Youtube",
-        url: "https://youtube.com/@Star_Knight12",
+        url: "https://youtube.com/@sohlost",
         icon: Icons.youtube,
-        navbar: true,
+        navbar: false,
       },
       CodePen: {
         name: "CodePen",
-        url: "https://codepen.io/StarKnightt",
+        url: "https://codepen.io/sohlost",
         icon: Icons.codepen,
-        navbar: true,
+        navbar: false,
       },
       buyMeACoffee: {
         name: "buyMeACoffee",
-        url: "https://buymeacoffee.com/prasen",
+        url: "https://buymeacoffee.com/sohlost",
         icon: Icons.buyMeACoffee,
-        navbar: true,
+        navbar: false,
       },
       email: {
         name: "Send Email",
-        url: "mailto:prasen.nayak@hotmail.com",
+        url: "mailto:f20230343@goa.bits-pilani.ac.in",
         icon: Icons.email,
         navbar: false,
       },
@@ -147,99 +91,63 @@ export const DATA = {
 
   work: [
     {
-      company: "Atomic Finance",
-      href: "https://atomic.finance",
+      company: "FlintX",
+      href: "https://flintx.com/",
       badges: [],
       location: "Remote",
-      title: "Bitcoin Protocol Engineer",
-      logoUrl: "/atomic.png",
-      start: "May 2021",
-      end: "Oct 2022",
+      title: "Research Intern",
+      logoUrl: "/flintx_logo.jpg",
+      start: "April 2025",
+      end: "Present",
       description:
-        "Implemented the Bitcoin discreet log contract (DLC) protocol specifications as an open source Typescript SDK. Dockerized all microservices and setup production kubernetes cluster. Architected a data lake using AWS S3 and Athena for historical backtesting of bitcoin trading strategies. Built a mobile app using react native and typescript.",
+        "Conducting research on Small Language Models (SLMs), focusing on language model architecture, training methodologies, and inference optimization. Exploring emerging research directions in the SLM space, with particular emphasis on leveraging underutilized Neural Processing Units (NPUs) that are readily being integrated into consumer electronics platforms.",
     },
     {
-      company: "Shopify",
+      company: "DaSH Lab",
+      href: "https://www.bits-pilani.ac.in/",
       badges: [],
-      href: "https://shopify.com",
+      location: "BITS Pilani, Goa",
+      title: "Undergraduate Student Researcher",
+      logoUrl: "/dash_lab.jpg",
+      start: "January 2024",
+      end: "Present",
+      description:
+        "Worked on PeerCompute, a decentralized Function-as-a-Service (FaaS) platform under Prof. Arnab K. Paul, which leverages volunteer PCs. Reverse-engineered AWS Lambda's internal workflow to design and recreate similar functionality tailored specifically for PeerCompute along with an invocation cycle for the benchmarking images. Significantly contributed to the Django-based backend, enhancing core infrastructure components. Conducted extensive research on advanced scheduling algorithms to optimize task distribution, resource utilization, and reliability.",
+    },
+    {
+      company: "phodu.club",
+      href: "https://phodu.club/",
+      badges: [],
       location: "Remote",
-      title: "Software Engineer",
-      logoUrl: "/shopify.svg",
-      start: "January 2021",
-      end: "April 2021",
+      title: "Junior Developer",
+      logoUrl: "/phodu_club_logo.jpg",
+      start: "January 2023",
+      end: "May 2023",
       description:
-        "Implemented a custom Kubernetes controller in Go to automate the deployment of MySQL and ProxySQL custom resources in order to enable 2,000+ internal developers to instantly deploy their app databases to production. Wrote several scripts in Go to automate MySQL database failovers while maintaining master-slave replication topologies and keeping Zookeeper nodes consistent with changes.",
-    },
-    {
-      company: "Nvidia",
-      href: "https://nvidia.com/",
-      badges: [],
-      location: "Santa Clara, CA",
-      title: "Software Engineer",
-      logoUrl: "/nvidia.png",
-      start: "January 2020",
-      end: "April 2020",
-      description:
-        "Architected and wrote the entire MVP of the GeForce Now Cloud Gaming internal admin and A/B testing dashboard using React, Redux, TypeScript, and Python.",
-    },
-    {
-      company: "Splunk",
-      href: "https://splunk.com",
-      badges: [],
-      location: "San Jose, CA",
-      title: "Software Engineer",
-      logoUrl: "/splunk.svg",
-      start: "January 2019",
-      end: "April 2019",
-      description:
-        "Co-developed a prototype iOS app with another intern in Swift for the new Splunk Phantom security orchestration product (later publicly demoed and launched at .conf annual conference in Las Vegas). Implemented a realtime service for the iOS app in Django (Python) and C++; serialized data using protobufs transmitted over gRPC resulting in an approximate 500% increase in data throughput.",
-    },
-    {
-      company: "Lime",
-      href: "https://li.me/",
-      badges: [],
-      location: "San Francisco, CA",
-      title: "Software Engineer",
-      logoUrl: "/lime.svg",
-      start: "January 2018",
-      end: "April 2018",
-      description:
-        "Proposed and implemented an internal ruby API for sending/receiving commands to scooters over LTE networks. Developed a fully automated bike firmware update system to handle asynchronous firmware updates of over 100,000+ scooters worldwide, and provide progress reports in real-time using React, Ruby on Rails, PostgreSQL and AWS EC2 saving hundreds of developer hours.",
-    },
-    {
-      company: "Mitre Media",
-      href: "https://mitremedia.com/",
-      badges: [],
-      location: "Toronto, ON",
-      title: "Software Engineer",
-      logoUrl: "/mitremedia.png",
-      start: "May 2017",
-      end: "August 2017",
-      description:
-        "Designed and implemented a robust password encryption and browser cookie storage system in Ruby on Rails. Leveraged the Yahoo finance API to develop the dividend.com equity screener",
+        "Worked on their online learning platform used by 1000s of students, helped them improve their backend performance by working on the database and converting their monolithic architecture to a much more scalable serverless architecture.",
     },
   ],
   education: [
     {
-      school: "Trident Academy Of Technology",
-      href: "https://tat.ac.in/",
-      degree: "B.Tech in Computer Science and Information Technology",
-      logoUrl: "/buildspace.webp",
-      start: "2020",
-      end: "2024",
+      school: "Birla Institute of Technology and Science, Pilani (Goa Campus)",
+      href: "https://www.bits-pilani.ac.in/",
+      degree: "B.E. in Computer Science and Engineering",
+      logoUrl: "/BITS_Pilani-Logo.svg.png",
+      start: "2023",
+      end: "2027",
     },
     {
-      school: "Netaji Subhas Memorial City College",
-      href: "https://www.nsmcity.ac.in/index.asp",
-      degree: "Higher Secondary",
-      logoUrl: "/waterloo.webp",
-      start: "2019",
-      end: "2021",
+      school: "Suryadatta National School",
+      href: "https://www.suryadattaschool.org/",
+      degree: "CBSE PCM",
+      logoUrl: "/SNS.jpg",
+      start: "2021",
+      end: "2023",
     },
   ],
   projects: [
     {
-      title: "CleanType",
+      title: "PeerCompute",
       href: "https://clean-type.vercel.app/",
       dates: "March 2025 - Ongoing",
       active: true,

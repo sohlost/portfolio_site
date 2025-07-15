@@ -6,7 +6,6 @@ import BlurFade from "@/components/magicui/blur-fade";
 import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
-import { VideoCard } from "@/components/video-card";
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
 import { Badge } from "@/components/ui/badge";
 import { PersonSchema } from "@/components/schema/person-schema";
@@ -14,18 +13,13 @@ import { Metadata } from 'next';
 import { Icons } from "@/components/icons";
 import ShinyButton from "@/components/ui/shiny-button";
 import { RainbowButton } from "@/components/ui/rainbow-button";
-import { SocialIconLink } from "@/components/social-icon-link";
-import { BlogSkeleton } from "@/components/skeletons/blog-skeleton";
-import { GithubSkeleton } from "@/components/skeletons/github-skeleton";
-import { ProjectSkeleton } from "@/components/skeletons/project-skeleton";
-import { HackathonSkeleton } from "@/components/skeletons/hackathon-skeleton";
-import { BorderBeam } from "@/components/magicui/border-beam";
-import { GhibliSkyBackground } from "@/components/ghibli-elements";
 
+import { BlogSkeleton } from "@/components/skeletons/blog-skeleton";
+import { ProjectSkeleton } from "@/components/skeletons/project-skeleton";
 const BLUR_FADE_DELAY = 0.04;
 
 export const metadata: Metadata = {
-  title: DATA.name,
+  title: "hello! • 🧘‍♂️",
   description: DATA.summary,
   openGraph: {
     title: DATA.name,
@@ -57,39 +51,26 @@ const BlogCard = dynamic(() => import("@/components/blog-card").then(mod => mod.
   loading: () => <BlogSkeleton />
 });
 
-const GithubContributions = dynamic(() => import("@/components/github-calendar").then(mod => mod.GithubContributions), {
-  ssr: false,
-  loading: () => <GithubSkeleton />
-});
-
 const ProjectCardDynamic = dynamic(() => import("@/components/project-card").then(mod => mod.ProjectCard), {
   ssr: true,
   loading: () => <ProjectSkeleton />
 });
 
-const HackathonCardDynamic = dynamic(() => import("@/components/hackathon-card").then(mod => mod.HackathonCard), {
-  ssr: true,
-  loading: () => <HackathonSkeleton />
-});
-
 export default function Page() {
   return (
     <>
-      <div className="fixed inset-0 -z-10 overflow-hidden">
-        <GhibliSkyBackground />
-      </div>
       
       <main className="flex flex-col min-h-[100dvh] space-y-10">
         <PersonSchema />
         <section id="hero">
           <div className="mx-auto w-full max-w-2xl space-y-8">
-            <div className="gap-2 flex justify-between">
+            <div className="gap-6 flex justify-end items-start">
               <div className="flex-col flex flex-1 space-y-1.5">
                 <BlurFadeText
                   delay={BLUR_FADE_DELAY}
                   className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
                   yOffset={8}
-                  text={`Hi, I'm ${DATA.name.split(" ")[0]} 👨🏻‍💻`}
+                  text={`Hi, I'm ${DATA.name.split(" ")[0]} `}
                 />
                 <BlurFadeText
                   className="max-w-[600px] md:text-xl"
@@ -99,12 +80,12 @@ export default function Page() {
               </div>
               <BlurFade delay={BLUR_FADE_DELAY}>
                 <div className="profile-wrapper">
-                  <Avatar className="size-28 relative z-10">
+                  <Avatar className="size-32 relative z-10">
                     <AvatarImage
                       alt={DATA.name}
                       src={DATA.avatarUrl}
-                      width={112}
-                      height={112}
+                      width={128}
+                      height={128}
                       loading="eager"
                     />
                     <AvatarFallback>{DATA.initials}</AvatarFallback>
@@ -120,69 +101,92 @@ export default function Page() {
             <h2 className="text-xl font-bold">About</h2>
           </BlurFade>
           <BlurFade delay={BLUR_FADE_DELAY * 4}>
-            <Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-              {DATA.summary}
-            </Markdown>
-          </BlurFade>
-        </section>
-
-        <section id="connect">
-          <BlurFade delay={BLUR_FADE_DELAY * 4.5}>
-            <div className="space-y-4">
-              <h2 className="text-xl font-bold">Let's collaborate 🤝🏻</h2>
-              <div className="grid grid-cols-4 sm:grid-cols-6 md:grid-cols-8 gap-2">
-                {Object.entries(DATA.contact.social).map(([name, social], idx) => (
-                  <SocialIconLink
-                    key={name}
-                    name={name}
-                    url={social.url}
-                    icon={<social.icon />}
-                    delay={BLUR_FADE_DELAY * 5 + idx * 0.05}
-                  />
-                ))}
+            <div className="space-y-2 text-sm text-muted-foreground">
+              <div className="flex items-start gap-2">
+                <span className="text-primary mt-1.5 text-xs">-</span>
+                <span>I'm a pre-final-year student at BITS Pilani, K.K. Birla Goa Campus.</span>
               </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary mt-1.5 text-xs">-</span>
+                <span>Currently, working on AI infrastructure and Function-as-a-Service (FaaS) research .</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary mt-1.5 text-xs">-</span>
+                <span>I'm deeply passionate about technology and enjoy reading tech-related non-fiction extensively.</span>
+              </div>
+              <div className="flex items-start gap-2">
+                <span className="text-primary mt-1.5 text-xs">-</span>
+                <span>Looking forward, I'm particularly curious about advancements in AI infrastructure and neural tech</span>
+              </div>
+    
             </div>
           </BlurFade>
         </section>
 
-        <section id="skills">
+
+
+        <section id="work">
           <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 9}>
-              <h2 className="text-xl font-bold">Skills</h2>
+            <BlurFade delay={BLUR_FADE_DELAY * 6}>
+              <h2 className="text-xl font-bold">Work Experience</h2>
             </BlurFade>
-            <div className="flex flex-wrap gap-1">
-              {DATA.skills.map((skill, id) => (
-                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-                  <Badge key={skill}>{skill}</Badge>
-                </BlurFade>
-              ))}
-            </div>
+            {DATA.work.map((work, id) => (
+              <BlurFade
+                key={work.company}
+                delay={BLUR_FADE_DELAY * 6.5 + id * 0.05}
+              >
+                <ResumeCard
+                  key={work.company}
+                  href={work.href}
+                  logoUrl={work.logoUrl}
+                  altText={work.company}
+                  title={work.company}
+                  subtitle={work.title}
+                  period={`${work.start} - ${work.end}`}
+                  description={work.description}
+                  location={work.location}
+                />
+              </BlurFade>
+            ))}
           </div>
         </section>
 
         <section id="blogs">
           <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 9}>
+            <BlurFade delay={BLUR_FADE_DELAY * 7}>
               <h2 className="text-xl font-bold">Recent Blog Posts</h2>
             </BlurFade>
-            <BlurFade delay={BLUR_FADE_DELAY * 10}>
+            <BlurFade delay={BLUR_FADE_DELAY * 7.5}>
               <div className="flex flex-col space-y-4">
                 <BlogCard
                   post={{
-                    title: "Is Computer Science Saturated?",
-                    publishedAt: "2024-06-18",
-                    summary: "Blogs are preparing to launch. Stay tuned!",
-                    slug: "hello-world"
+                    title: "My Reading and Content Recommendations",
+                    publishedAt: "2024-12-08",
+                    summary: "A curated list of books, articles, and other content that I recommend and will keep updating",
+                    slug: "ubuntu-is-bloated"
                   }}
                 />
-                <BlogCard
-                  post={{
-                    title: "How to use Cursor AI IDE pro for Free ?",
-                    publishedAt: "2025-04-09",
-                    summary: "A comprehensive guide explaining how to use Cursor for free",
-                    slug: "cursor-free"
-                  }}
-                />
+                <a 
+                  href="https://medium.com/@your-medium-username/beyond-scale-article-url"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block group hover:opacity-80 transition-opacity"
+                >
+                  <div className="flex flex-col space-y-1 p-4 rounded-lg border border-border hover:bg-accent/50 transition-colors">
+                    <div className="flex items-center justify-between">
+                      <h3 className="font-medium tracking-tight group-hover:underline">
+                        Beyond Scale: The Data-First Shift Powering Small Language Models
+                      </h3>
+                      <span className="text-xs text-muted-foreground">Medium</span>
+                    </div>
+                    <p className="text-sm text-muted-foreground">
+                      2024-11-15
+                    </p>
+                    <p className="text-sm text-muted-foreground">
+                      Exploring how small language models are revolutionizing AI through strategic data utilization rather than sheer computational power
+                    </p>
+                  </div>
+                </a>
                 <Link
                   href="/blog"
                   className="mt-4 block"
@@ -198,18 +202,12 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="contributions">
-          <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <h2 className="text-xl font-bold">GitHub Contributions</h2>
-            <GithubContributions />
-          </BlurFade>
-        </section>
         <section id="projects">
           <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <BlurFade delay={BLUR_FADE_DELAY * 8}>
               <h2 className="text-xl font-bold">Featured Projects</h2>
             </BlurFade>
-            <BlurFade delay={BLUR_FADE_DELAY * 8}>
+            <BlurFade delay={BLUR_FADE_DELAY * 8.5}>
               <div className="grid gap-4 sm:grid-cols-2">
                 {DATA.projects.slice(0, 4).map((project) => (
                   <div key={project.title} className="relative overflow-hidden rounded-xl">
@@ -233,53 +231,16 @@ export default function Page() {
             </BlurFade>
           </div>
         </section>
-        <section id="hackathons">
-          <div className="space-y-12 w-full py-12">
-            <BlurFade delay={BLUR_FADE_DELAY * 13}>
-              <div className="flex flex-col items-center justify-center space-y-4 text-center">
-                <div className="space-y-2">
-                  <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-                    Hackathons
-                  </div>
-                  <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-                    I like building things
-                  </h2>
-                  <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-                    During my college years, I participated in some hackathons.
-                  </p>
-                </div>
-              </div>
-            </BlurFade>
-            <BlurFade delay={BLUR_FADE_DELAY * 14}>
-              <ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-                {DATA.hackathons.map((project, id) => (
-                  <BlurFade
-                    key={project.title + project.dates}
-                    delay={BLUR_FADE_DELAY * 15 + id * 0.05}
-                  >
-                    <HackathonCardDynamic
-                      title={project.title}
-                      description={project.description}
-                      location={project.location}
-                      dates={project.dates}
-                      image={project.image}
-                      links={project.links}
-                    />
-                  </BlurFade>
-                ))}
-              </ul>
-            </BlurFade>
-          </div>
-        </section>
+
         <section id="education">
           <div className="flex min-h-0 flex-col gap-y-3">
-            <BlurFade delay={BLUR_FADE_DELAY * 7}>
+            <BlurFade delay={BLUR_FADE_DELAY * 9}>
               <h2 className="text-xl font-bold">Education</h2>
             </BlurFade>
             {DATA.education.map((education, id) => (
               <BlurFade
                 key={education.school}
-                delay={BLUR_FADE_DELAY * 8 + id * 0.05}
+                delay={BLUR_FADE_DELAY * 9.5 + id * 0.05}
               >
                 <ResumeCard
                   key={education.school}
@@ -295,45 +256,19 @@ export default function Page() {
           </div>
         </section>
 
-        <section id="videos">
-          <BlurFade delay={BLUR_FADE_DELAY * 10}>
-            <div className="space-y-4">
-              <h2 className="text-xl font-bold">Recent Videos</h2>
-              <div className="grid gap-6 sm:grid-cols-2">
-                {DATA.videos.slice(-2).map((video, idx) => (
-                  <BlurFade key={video.url} delay={BLUR_FADE_DELAY * 11 + idx * 0.05}>
-                    <div className="relative overflow-hidden rounded-xl">
-                      <BorderBeam
-                        size={50}
-                        duration={4}
-                        colorFrom="#ffaa40"
-                        colorTo="#9c40ff"
-                        className="from-transparent via-foreground/20 to-transparent"
-                        transition={{
-                          type: "spring",
-                          stiffness: 60,
-                          damping: 20,
-                        }}
-                      />
-                      <VideoCard video={video} />
-                    </div>
-                  </BlurFade>
-                ))}
-                <BlurFade delay={BLUR_FADE_DELAY * 12}>
-                  <Link
-                    href="/videos"
-                    className="mt-4 block"
-                  >
-                    <RainbowButton
-                      className="w-full sm:w-[160px] px-4 py-2 group transition-all duration-300 hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] font-bold text-center"
-                    >
-                      All Videos →
-                    </RainbowButton>
-                  </Link>
+        <section id="skills">
+          <div className="flex min-h-0 flex-col gap-y-3">
+            <BlurFade delay={BLUR_FADE_DELAY * 10}>
+              <h2 className="text-xl font-bold">Skills</h2>
+            </BlurFade>
+            <div className="flex flex-wrap gap-1">
+              {DATA.skills.map((skill, id) => (
+                <BlurFade key={skill} delay={BLUR_FADE_DELAY * 10.5 + id * 0.05}>
+                  <Badge key={skill}>{skill}</Badge>
                 </BlurFade>
-              </div>
+              ))}
             </div>
-          </BlurFade>
+          </div>
         </section>
 
         <section id="contact">
@@ -347,11 +282,11 @@ export default function Page() {
               
               <div className="mt-6 space-y-4">
                 <a
-                  href="mailto:prasen.nayak@hotmail.com"
+                  href="mailto:f20230343@goa.bits-pilani.ac.in"
                   className="flex items-center gap-2 underline underline-offset-4 hover:opacity-70 transition-opacity"
                 >
                   <Icons.email className="size-4" />
-                  prasen.nayak@hotmail.com
+                  f20230343@goa.bits-pilani.ac.in
                 </a>
 
                 <a
@@ -373,34 +308,6 @@ export default function Page() {
               <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                 <div className="text-sm text-muted-foreground space-y-2">
                   <p>© {new Date().getFullYear()} {DATA.name}. All rights reserved.</p>
-                  <p>
-                    Open source under{' '}
-                    <a 
-                      href="https://opensource.org/licenses/MIT" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-foreground"
-                    >
-                      MIT License
-                    </a>
-                    {' '}and available on{' '}
-                    <a 
-                      href="https://github.com/StarKnightt/prasendev" 
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="underline hover:text-foreground"
-                    >
-                      GitHub
-                    </a>
-                  </p>
-                </div>
-                <div className="flex space-x-4">
-                  <Link href="/sitemap.xml" className="text-sm text-muted-foreground hover:text-foreground">
-                    Sitemap
-                  </Link>
-                  <Link href="/rss.xml" className="text-sm text-muted-foreground hover:text-foreground">
-                    RSS
-                  </Link>
                 </div>
               </div>
             </div>

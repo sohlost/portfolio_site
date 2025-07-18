@@ -1,3 +1,5 @@
+"use client";
+
 import { Badge } from "@/components/ui/badge";
 import {
   Card,
@@ -7,10 +9,13 @@ import {
   CardTitle,
 } from "@/components/ui/card";
 import { cn } from "@/lib/utils";
+import { motion } from "framer-motion";
+import { ChevronDownIcon } from "lucide-react";
 import Image from "next/image";
 import Link from "next/link";
 import Markdown from "react-markdown";
 import { BorderBeam } from "@/components/magicui/border-beam";
+import React from "react";
 
 interface Props {
   title: string;
@@ -41,6 +46,19 @@ export function ProjectCard({
   links,
   className,
 }: Props) {
+  const [isDescriptionExpanded, setIsDescriptionExpanded] = React.useState(false);
+  
+  const handleDescriptionToggle = (e: React.MouseEvent) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setIsDescriptionExpanded(!isDescriptionExpanded);
+  };
+
+  // Truncate description for preview (first 100 characters)
+  const truncatedDescription = description.length > 100 
+    ? description.substring(0, 100) + "..." 
+    : description;
+
   return (
     <Card className={cn("flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full relative group", className)}>
       <Link
@@ -74,9 +92,28 @@ export function ProjectCard({
           <div className="hidden font-sans text-xs underline print:visible">
             {link?.replace("https://", "").replace("www.", "").replace("/", "")}
           </div>
-          <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
-            {description}
-          </Markdown>
+          
+          {/* Description with dropdown */}
+          <div className="space-y-2">
+            <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
+              {isDescriptionExpanded ? description : truncatedDescription}
+            </Markdown>
+            
+            {description.length > 100 && (
+              <button
+                onClick={handleDescriptionToggle}
+                className="flex items-center gap-1 text-xs text-blue-500 hover:text-blue-400 transition-colors group/toggle"
+              >
+                <span>{isDescriptionExpanded ? "Show Less" : "Read More"}</span>
+                <ChevronDownIcon
+                  className={cn(
+                    "h-3 w-3 transition-transform duration-200",
+                    isDescriptionExpanded ? "rotate-180" : "rotate-0"
+                  )}
+                />
+              </button>
+            )}
+          </div>
         </div>
       </CardHeader>
       <CardContent className="mt-auto flex flex-col px-2">
